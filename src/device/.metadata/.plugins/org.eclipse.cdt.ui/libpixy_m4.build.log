@@ -1,0 +1,6 @@
+10:38:55 **** Build of configuration Release for project libpixy_m4 ****
+make -r all 
+make: Nothing to be done for `all'.
+
+10:38:55 Build Finished (took 797ms)
+
