@@ -11,8 +11,8 @@
 						<entry kind="includePath" name="/libpixy_m4/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="C:/Users/tmelniko/Documents/GitHub/gcc/gcc/src/device/common/inc"/>
-						<entry kind="includePath" name="C:/Users/tmelniko/Documents/GitHub/gcc/gcc/src/common/inc"/>
+						<entry kind="includePath" name="C:/Users/tmelniko/Documents/GitHub/PixyFirmware/PixyFirmware/src/device/common/inc"/>
+						<entry kind="includePath" name="C:/Users/tmelniko/Documents/GitHub/PixyFirmware/PixyFirmware/src/common/inc"/>
 						<entry kind="macro" name="CORE_M4" value=""/>
 						<entry kind="macro" name="CPP_USE_HEAP" value=""/>
 						<entry kind="macro" name="IPC_MASTER" value=""/>

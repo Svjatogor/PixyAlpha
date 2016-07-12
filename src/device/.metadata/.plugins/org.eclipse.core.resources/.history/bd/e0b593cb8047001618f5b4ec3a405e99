@@ -282,7 +282,7 @@ int32_t cc_setSigRegion(const uint32_t &type, const uint8_t &signum, const uint1
 	prm_set(id, INTS8(sizeof(ColorSignature), sig), END);
 	cc_loadLut();
 
-	cprintf("Signature set! Second firmware :*\n");
+	cprintf("Signature set! I change firmware! :)\n");
 
     exec_sendEvent(chirp, EVT_PARAM_CHANGE);
 	return 0;

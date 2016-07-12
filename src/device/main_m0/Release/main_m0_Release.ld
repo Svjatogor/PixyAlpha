@@ -5,7 +5,7 @@
  * Generated linker script file for LPC4330-M0
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.23
- * LPCXpresso v8.1.4 [Build 606] [2016-03-14]  on Jul 11, 2016 10:39:05 AM
+ * LPCXpresso v8.1.4 [Build 606] [2016-03-14]  on Jul 11, 2016 7:01:57 PM
  */
 
 INCLUDE "main_m0_Release_library.ld"
