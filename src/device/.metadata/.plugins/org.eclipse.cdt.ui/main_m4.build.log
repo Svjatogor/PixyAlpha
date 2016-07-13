@@ -1,4 +1,4 @@
-13:23:40 **** Incremental Build of configuration SPIFI for project main_m4 ****
+13:41:17 **** Incremental Build of configuration SPIFI for project main_m4 ****
 make -r all 
 Building file: ../src/conncomp.cpp
 Invoking: MCU C++ Compiler
@@ -18,29 +18,6 @@ arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG
 ../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
 ../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
 Finished building: ../src/conncomp.cpp
- 
-Building file: ../src/exec.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/exec.d" -MT"src/exec.o" -MT"src/exec.d" -o "src/exec.o" "../src/exec.cpp"
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
- };
- ^
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-Finished building: ../src/exec.cpp
  
 Building target: main_m4.axf
 Invoking: MCU C++ Linker
@@ -71,5 +48,5 @@ Previous value 0x00000000 at offset 0x1c in file main_m4.bin
 copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
  
 
-13:23:42 Build Finished (took 2s.156ms)
+13:41:19 Build Finished (took 1s.609ms)
 
