@@ -56,7 +56,6 @@ int main(void)
 {
 	uint16_t major, minor, build;
 	int i, res, count;
-
 	// main init of hardware plus a version-dependent number for the parameters that will
 	// force a format of parameter between version numbers.  
 #ifdef KEIL
@@ -64,7 +63,6 @@ int main(void)
 #else
 	pixyInit();
 #endif
-
 	cc_init(g_chirpUsb);
 	ser_init();
 	exec_init(g_chirpUsb);
@@ -91,10 +89,12 @@ int main(void)
 #if 0
 	chaseLoadParams();
 	exec_addProg(&g_progChase);
+
 #endif
+	// Check version firmware
 	exec_addProg(&g_progVideo, true);
 
-	// this code formats if the version has changed
+	//this code formats if the version has changed
 	for (i=0, count=0; i<25; i++)
 	{
 		res = prm_get("fwver", &major, &minor, &build, END);
@@ -104,8 +104,8 @@ int main(void)
 	if (count==0)
 		prm_format();
 
-   	// check version
-	prm_add("fwver", PRM_FLAG_INTERNAL, "", UINT16(FW_MAJOR_VER), UINT16(FW_MINOR_VER), UINT16(FW_BUILD_VER), END);
+   	 //check version
+	 prm_add("fwver", PRM_FLAG_INTERNAL, "", UINT16(FW_MAJOR_VER), UINT16(FW_MINOR_VER), UINT16(FW_BUILD_VER), END);
 
 	exec_loop();
 #endif

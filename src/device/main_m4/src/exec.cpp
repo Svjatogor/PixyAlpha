@@ -100,7 +100,7 @@ static const ActionScriptlet actions[]=
 	"runprog 2\n"
 	}, 
 	{
-	"Set signature 1...", 
+	"Set signature 1... in Mono",
 	"cam_getFrame 0x21 0 0 320 200\n"
     "cc_setSigRegion 0 1\n"
 	"runprogArg 8 1\n"
@@ -321,7 +321,7 @@ int32_t exec_version(Chirp *chirp)
 {
 	uint16_t ver[] = {FW_MAJOR_VER, FW_MINOR_VER, FW_BUILD_VER};
 
-	//cprintf("Pixy firmware version %d.%d.%d\n", ver[0], ver[1], ver[2]);
+	cprintf("Pixy firmware version %d.%d.%d\n", ver[0], ver[1], ver[2]);
 	if (chirp)
 		CRP_RETURN(chirp, UINTS16(sizeof(ver), ver), END);
 
