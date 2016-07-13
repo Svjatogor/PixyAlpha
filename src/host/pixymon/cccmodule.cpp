@@ -90,7 +90,7 @@ void CccModule::paramChange()
             }
         }
     }
-    if (pixyParameterChanged("Signature 1 what a fuck", &val))
+    if (pixyParameterChanged("Signature 1 range", &val))
     {
         m_blobs->m_clut.setSigRange(1, val.toFloat());
         relut = true;

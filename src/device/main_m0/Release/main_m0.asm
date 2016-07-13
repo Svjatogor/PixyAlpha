@@ -135,63 +135,64 @@
   81:../src/main_m0.c **** 	uint8_t type = CAM_GRAB_M1R2;
   82:../src/main_m0.c **** 	uint32_t memory = SRAM1_LOC;
   83:../src/main_m0.c **** 	uint16_t offset = 0;
-  84:../src/main_m0.c **** 	uint16_t width = 320;
-  85:../src/main_m0.c **** 	uint16_t height = 200;
-  86:../src/main_m0.c **** 	while(1)
-  87:../src/main_m0.c **** 	{
-  88:../src/main_m0.c **** 		 getFrame(&type, &memory, &offset, &offset, &width, &height);
-  89:../src/main_m0.c **** 		 i++;
-  90:../src/main_m0.c **** 
-  91:../src/main_m0.c **** 		 if (i%50==0)
-  92:../src/main_m0.c **** 		 {
-  93:../src/main_m0.c **** 			 _DBD32(i), _CR();
-  94:../src/main_m0.c **** 		 }
-  95:../src/main_m0.c **** 	}
-  96:../src/main_m0.c **** #endif
-  97:../src/main_m0.c **** 	//printf("M0 ready\n");
-  98:../src/main_m0.c **** 	exec_loop();
-  54              		.loc 1 98 0
+  84:../src/main_m0.c **** 	// Size input image
+  85:../src/main_m0.c **** 	uint16_t width = 640;
+  86:../src/main_m0.c **** 	uint16_t height = 400;
+  87:../src/main_m0.c **** 	while(1)
+  88:../src/main_m0.c **** 	{
+  89:../src/main_m0.c **** 		 getFrame(&type, &memory, &offset, &offset, &width, &height);
+  90:../src/main_m0.c **** 		 i++;
+  91:../src/main_m0.c **** 
+  92:../src/main_m0.c **** 		 if (i%50==0)
+  93:../src/main_m0.c **** 		 {
+  94:../src/main_m0.c **** 			 _DBD32(i), _CR();
+  95:../src/main_m0.c **** 		 }
+  96:../src/main_m0.c **** 	}
+  97:../src/main_m0.c **** #endif
+  98:../src/main_m0.c **** 	//printf("M0 ready\n");
+  99:../src/main_m0.c **** 	exec_loop();
+  54              		.loc 1 99 0
   55 0020 FFF7FEFF 		bl	exec_loop
-  99:../src/main_m0.c **** #endif
- 100:../src/main_m0.c **** #if 0
- 101:../src/main_m0.c **** 	while(1)
- 102:../src/main_m0.c **** 	{
- 103:../src/main_m0.c **** 		CTIMER_START();
- 104:../src/main_m0.c **** 		syncM1((uint32_t *)&LPC_GPIO_PORT->PIN[1], 0x2000);
- 105:../src/main_m0.c **** 		CTIMER_STOP();
- 106:../src/main_m0.c **** 		
- 107:../src/main_m0.c **** 		printf("%d\n", CTIMER_GET());
- 108:../src/main_m0.c **** 	}	
- 109:../src/main_m0.c **** #endif
- 110:../src/main_m0.c **** #if 0
- 111:../src/main_m0.c **** {
- 112:../src/main_m0.c **** 	uint32_t i;
- 113:../src/main_m0.c **** 	uint8_t *lut = (uint8_t *)SRAM1_LOC + 0x10000;
- 114:../src/main_m0.c **** 	uint32_t memory = SRAM1_LOC;
- 115:../src/main_m0.c **** 	uint32_t size = SRAM1_SIZE/2;
- 116:../src/main_m0.c **** 	for (i=0; i<0x10000; i++)
- 117:../src/main_m0.c **** 		lut[i] = 0;
- 118:../src/main_m0.c **** 	lut[0xb400] = 0;
- 119:../src/main_m0.c **** 	lut[0xb401] = 1;
- 120:../src/main_m0.c **** 	lut[0xb402] = 1;
- 121:../src/main_m0.c **** 	lut[0xb403] = 1;
- 122:../src/main_m0.c **** 	lut[0xb404] = 0;
- 123:../src/main_m0.c **** 	lut[0xb405] = 1;
- 124:../src/main_m0.c **** 	lut[0xb406] = 1;
- 125:../src/main_m0.c **** 	lut[0xb407] = 0;
- 126:../src/main_m0.c **** 	lut[0xb408] = 0;
- 127:../src/main_m0.c **** 	lut[0xb409] = 0;
- 128:../src/main_m0.c **** 
- 129:../src/main_m0.c **** 	while(1)
- 130:../src/main_m0.c ****  		getRLSFrame(&memory, &size); //, (uint32_t *)&lut);
- 131:../src/main_m0.c **** }
- 132:../src/main_m0.c **** #endif
- 133:../src/main_m0.c **** 
- 134:../src/main_m0.c **** return 0;
-  56              		.loc 1 134 0
+ 100:../src/main_m0.c **** #endif
+ 101:../src/main_m0.c **** #if 0
+ 102:../src/main_m0.c **** 	while(1)
+ 103:../src/main_m0.c **** 	{
+ 104:../src/main_m0.c **** 		CTIMER_START();
+ 105:../src/main_m0.c **** 		syncM1((uint32_t *)&LPC_GPIO_PORT->PIN[1], 0x2000);
+ 106:../src/main_m0.c **** 		CTIMER_STOP();
+ 107:../src/main_m0.c **** 		
+ 108:../src/main_m0.c **** 		printf("%d\n", CTIMER_GET());
+ 109:../src/main_m0.c **** 	}	
+ 110:../src/main_m0.c **** #endif
+ 111:../src/main_m0.c **** #if 0
+ 112:../src/main_m0.c **** {
+ 113:../src/main_m0.c **** 	uint32_t i;
+ 114:../src/main_m0.c **** 	uint8_t *lut = (uint8_t *)SRAM1_LOC + 0x10000;
+ 115:../src/main_m0.c **** 	uint32_t memory = SRAM1_LOC;
+ 116:../src/main_m0.c **** 	uint32_t size = SRAM1_SIZE/2;
+ 117:../src/main_m0.c **** 	for (i=0; i<0x10000; i++)
+ 118:../src/main_m0.c **** 		lut[i] = 0;
+ 119:../src/main_m0.c **** 	lut[0xb400] = 0;
+ 120:../src/main_m0.c **** 	lut[0xb401] = 1;
+ 121:../src/main_m0.c **** 	lut[0xb402] = 1;
+ 122:../src/main_m0.c **** 	lut[0xb403] = 1;
+ 123:../src/main_m0.c **** 	lut[0xb404] = 0;
+ 124:../src/main_m0.c **** 	lut[0xb405] = 1;
+ 125:../src/main_m0.c **** 	lut[0xb406] = 1;
+ 126:../src/main_m0.c **** 	lut[0xb407] = 0;
+ 127:../src/main_m0.c **** 	lut[0xb408] = 0;
+ 128:../src/main_m0.c **** 	lut[0xb409] = 0;
+ 129:../src/main_m0.c **** 
+ 130:../src/main_m0.c **** 	while(1)
+ 131:../src/main_m0.c ****  		getRLSFrame(&memory, &size); //, (uint32_t *)&lut);
+ 132:../src/main_m0.c **** }
+ 133:../src/main_m0.c **** #endif
+ 134:../src/main_m0.c **** 
+ 135:../src/main_m0.c **** return 0;
+  56              		.loc 1 135 0
   57 0024 0023     		movs	r3, #0
- 135:../src/main_m0.c **** }
-  58              		.loc 1 135 0
+ 136:../src/main_m0.c **** }
+  58              		.loc 1 136 0
   59 0026 1800     		movs	r0, r3
   60 0028 BD46     		mov	sp, r7
   61              		@ sp needed
@@ -209,10 +210,10 @@
   74              		.file 3 "c:\\nxp\\lpcxpresso_8.1.4_606\\lpcxpresso\\tools\\redlib\\include\\stdint.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 main_m0.c
-C:\Users\tmelniko\AppData\Local\Temp\cco4J3rp.s:20     .rodata:00000000 $d
-C:\Users\tmelniko\AppData\Local\Temp\cco4J3rp.s:24     .text.main:00000000 $t
-C:\Users\tmelniko\AppData\Local\Temp\cco4J3rp.s:29     .text.main:00000000 main
-C:\Users\tmelniko\AppData\Local\Temp\cco4J3rp.s:66     .text.main:0000002c $d
+C:\Users\tmelniko\AppData\Local\Temp\cc2VqWJg.s:20     .rodata:00000000 $d
+C:\Users\tmelniko\AppData\Local\Temp\cc2VqWJg.s:24     .text.main:00000000 $t
+C:\Users\tmelniko\AppData\Local\Temp\cc2VqWJg.s:29     .text.main:00000000 main
+C:\Users\tmelniko\AppData\Local\Temp\cc2VqWJg.s:66     .text.main:0000002c $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

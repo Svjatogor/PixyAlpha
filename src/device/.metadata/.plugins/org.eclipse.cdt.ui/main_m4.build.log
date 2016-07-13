@@ -1,24 +1,5 @@
-13:41:17 **** Incremental Build of configuration SPIFI for project main_m4 ****
+13:56:42 **** Incremental Build of configuration SPIFI for project main_m4 ****
 make -r all 
-Building file: ../src/conncomp.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/conncomp.d" -MT"src/conncomp.o" -MT"src/conncomp.d" -o "src/conncomp.o" "../src/conncomp.cpp"
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
- };
- ^
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-Finished building: ../src/conncomp.cpp
- 
 Building target: main_m4.axf
 Invoking: MCU C++ Linker
 arm-none-eabi-c++ -nostdlib -L"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src" -L"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\Release" -Xlinker -Map="main_m4.map" -Xlinker --gc-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -T "SPIFI_link_template.ld" -L ../linkscripts -o "main_m4.axf"  ./src/analogdig.o ./src/button.o ./src/conncomp.o ./src/cr_cpp_config.o ./src/cr_start_m0.o ./src/cr_startup_lpc43xx.o ./src/exec.o ./src/i2c.o ./src/main_m4.o ./src/progblobs.o ./src/progchase.o ./src/progpt.o ./src/progvideo.o ./src/serial.o ./src/spi.o ./src/uart.o  C:/Users/tmelniko/Documents/GitHub/PixyFirmware/PixyFirmware/src/device/main_m0/Release/main_m0.axf.o -llibpixy_m4 -lfalcon_m4_spifi_drv
@@ -48,5 +29,5 @@ Previous value 0x00000000 at offset 0x1c in file main_m4.bin
 copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
  
 
-13:41:19 Build Finished (took 1s.609ms)
+13:56:43 Build Finished (took 938ms)
 

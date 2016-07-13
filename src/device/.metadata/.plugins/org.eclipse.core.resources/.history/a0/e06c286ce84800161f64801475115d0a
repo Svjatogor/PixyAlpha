@@ -95,7 +95,7 @@ int main(void)
 		 }
 	}
 #endif
-	//printf("M0 ready\n");
+	printf("M0 ready\n");
 	exec_loop();
 #endif
 #if 0

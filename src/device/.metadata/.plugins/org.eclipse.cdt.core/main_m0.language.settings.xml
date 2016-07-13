@@ -8,8 +8,8 @@
 						<entry kind="includePath" name="/libpixy_m0/inc">
 							<flag value="VALUE_WORKSPACE_PATH|RESOLVED"/>
 						</entry>
-						<entry kind="includePath" name="C:/Users/tmelniko/Documents/GitHub/gcc/gcc/src/device/common/inc"/>
-						<entry kind="includePath" name="C:/Users/tmelniko/Documents/GitHub/gcc/gcc/src/common/inc"/>
+						<entry kind="includePath" name="C:/Users/tmelniko/Documents/GitHub/PixyFirmware/PixyFirmware/src/device/common/inc"/>
+						<entry kind="includePath" name="C:/Users/tmelniko/Documents/GitHub/PixyFirmware/PixyFirmware/src/common/inc"/>
 						<entry kind="macro" name="CORE_M0" value=""/>
 						<entry kind="macro" name="CORE_M0APP" value=""/>
 						<entry kind="macro" name="IPC_SLAVE" value=""/>
