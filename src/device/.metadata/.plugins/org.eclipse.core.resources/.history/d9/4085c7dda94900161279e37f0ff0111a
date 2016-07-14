@@ -116,13 +116,10 @@ void ButtonMachine::ledPipe()
 	Points points;
 	RGBPixel rgb;
 	uint32_t color, r, g, b, n;
-	//g_blobs->m_clut.growRegion(g_rawFrame, Point16(CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2), &points);
-	//points.clear();
-	cprintf("led Pipe q_rawFrame.m_pixels = %d, q_rawFrame.width = %d,  m_height = %d", *(g_rawFrame.m_pixels), g_rawFrame.m_width, g_rawFrame.m_height);
-	Point16 point(0, 5);
-	// add my point in vector
-	points.push_back(point);
-	cprintf("%d %d", points[0].m_x, points[0].m_y);
+	g_blobs->m_clut.growRegion(g_rawFrame, Point16(CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2), &points);	
+	//cprintf("led Pipe q_rawFrame.m_pixels = %d, q_rawFrame.width = %d,  m_height = %d", *(g_rawFrame.m_pixels), g_rawFrame.m_width, g_rawFrame.m_height);
+	for (int i = 0; i < points.size(); i++)
+		cprintf("x = %d, y = %d", points[i].m_x, points[i].m_y);
 	cc_sendPoints(points, CL_GROW_INC, CL_GROW_INC, g_chirpUsb);
 
 	IterPixel ip(g_rawFrame, &points);
