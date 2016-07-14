@@ -120,21 +120,21 @@ void ButtonMachine::ledPipe()
 	//points.clear();
 	cprintf("led Pipe q_rawFrame.m_pixels = %d, q_rawFrame.width = %d,  m_height = %d", *(g_rawFrame.m_pixels), g_rawFrame.m_width, g_rawFrame.m_height);
 	// test points
-	Point16* point = new Point16(0, 0);
+	Point16& point = new Point16(0, 0);
 	// add my point in vector
-	points.push_back(*point);
+	points.push_back(point);
 	delete point;
-	point = new Point16(4, 4);
+	Point16& point = new Point16(5, 5);
 	// add my point in vector
-	points.push_back(*point);
+	points.push_back(point);
 	delete point;
-	point = new Point16(196, 196);
+	Point16& point = new Point16(200, 200);
 	// add my point in vector
-	points.push_back(*point);
+	points.push_back(point);
 	delete point;
-	point = new Point16(196, 0);
+	Point16& point = new Point16(200, 0);
 	// add my point in vector
-	points.push_back(*point);
+	points.push_back(point);
 	delete point;
 	cc_sendPoints(points, CL_GROW_INC, CL_GROW_INC, g_chirpUsb);
 

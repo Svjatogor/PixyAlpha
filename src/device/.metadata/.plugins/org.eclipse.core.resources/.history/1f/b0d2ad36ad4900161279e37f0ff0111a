@@ -128,11 +128,11 @@ void ButtonMachine::ledPipe()
 	// add my point in vector
 	points.push_back(*point);
 	delete point;
-	point = new Point16(196, 196);
+	point = new Point16(200, 200);
 	// add my point in vector
 	points.push_back(*point);
 	delete point;
-	point = new Point16(196, 0);
+	point = new Point16(200, 0);
 	// add my point in vector
 	points.push_back(*point);
 	delete point;
