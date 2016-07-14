@@ -1,6 +1,6 @@
-12:05:17 **** Incremental Build of configuration Release for project libpixy_m4 ****
+12:53:52 **** Incremental Build of configuration Release for project libpixy_m4 ****
 make -r all 
 make: Nothing to be done for `all'.
 
-12:05:17 Build Finished (took 313ms)
+12:53:52 Build Finished (took 253ms)
 
