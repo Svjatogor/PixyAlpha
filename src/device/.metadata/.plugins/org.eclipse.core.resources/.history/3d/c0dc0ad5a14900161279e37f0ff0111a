@@ -86,13 +86,13 @@ int main(void)
 
 #if 0
 //	// load programs
-	exec_addProg(&g_progBlobs);
-	ptLoadParams();
-	exec_addProg(&g_progPt);
+//	exec_addProg(&g_progBlobs);
+//	ptLoadParams();
+//	exec_addProg(&g_progPt);
     cprintf ("load params");
 #if 0
-	chaseLoadParams();
-	exec_addProg(&g_progChase);
+//	chaseLoadParams();
+//	exec_addProg(&g_progChase);
     cprintf("if in load params");
 
 #endif

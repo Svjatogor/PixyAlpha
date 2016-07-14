@@ -90,7 +90,7 @@ void scaleLED(uint32_t r, uint32_t g, uint32_t b, uint32_t n)
 	// saturate
 	rgbUnpack(saturate(rgbPack(r, g, b)), &r, &g, &b);
 #endif
-	//cprintf("r %d g %d b %d min %d max %d sat %d sat2 %d n %d\n", r, g, b, min, max, sat, n);
+	cprintf("r %d g %d b %d min %d max %d sat %d sat2 %d n %d\n", r, g, b, min, max, sat, n);
 	if (r > g && r > b)
 		cprintf("red");
 	else if (g > r && g > b)
@@ -117,7 +117,7 @@ void ButtonMachine::ledPipe()
 	RGBPixel rgb;
 	uint32_t color, r, g, b, n;
 	g_blobs->m_clut.growRegion(g_rawFrame, Point16(CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2), &points);	
-	cprintf("led Pipe q_rawFrame.m_pixels = %d, q_rawFrame.width = %d,  m_height = %d", *(g_rawFrame.m_pixels), g_rawFrame.m_width, g_rawFrame.m_height);
+	cprintf("led Pipe q_rawFrame.m_pixels = %d, q_rawFrame.width = %d,  m_height = %d", *(q_rawFrame.m_pixels), q_rawFrame.m_width, q_rawFrame.m_height);
 	cc_sendPoints(points, CL_GROW_INC, CL_GROW_INC, g_chirpUsb);
 
 	IterPixel ip(g_rawFrame, &points);
@@ -142,7 +142,7 @@ void ButtonMachine::setSignature()
 bool ButtonMachine::handleSignature()
 {
 	uint32_t bt;
-	//cprintf("handleSignature");
+	cprintf("handleSignature");
 	bt = button();
 
    	if (m_ledPipe) // if ledpipe, grab frame, but don't flush 

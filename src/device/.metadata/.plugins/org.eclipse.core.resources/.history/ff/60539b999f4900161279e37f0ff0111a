@@ -60,21 +60,18 @@ int main(void)
 	// force a format of parameter between version numbers.  
 #ifdef KEIL
  	pixyInit(SRAM3_LOC, &LR0[0], sizeof(LR0));
- 	cprintf("pixy init keil");
 #else
 	pixyInit();
-	cprintf("pixy init");
 #endif
 	cc_init(g_chirpUsb);
 	ser_init();
 	exec_init(g_chirpUsb);
 
 #if 1
-//    exec_addProg(&g_progBlobs);
-//    ptLoadParams();
+    exec_addProg(&g_progBlobs);
+    ptLoadParams();
     exec_addProg(&g_progPt);
     exec_addProg(&g_progVideo, true);
-    cprintf("Load params in firmware");
 #if 0
     cam_setMode(CAM_MODE1);
     while(1)
@@ -86,13 +83,13 @@ int main(void)
 
 #if 0
 //	// load programs
-	exec_addProg(&g_progBlobs);
-	ptLoadParams();
-	exec_addProg(&g_progPt);
+//	exec_addProg(&g_progBlobs);
+//	ptLoadParams();
+//	exec_addProg(&g_progPt);
     cprintf ("load params");
 #if 0
-	chaseLoadParams();
-	exec_addProg(&g_progChase);
+//	chaseLoadParams();
+//	exec_addProg(&g_progChase);
     cprintf("if in load params");
 
 #endif
@@ -135,7 +132,7 @@ int main(void)
 		rcs_setPos(1, 1000);
 		delayus(DELAY);
 	}
-	cprintf("DELAY");
+
 #endif
 #if 0
 	while(1)
@@ -143,7 +140,6 @@ int main(void)
 		g_chirpUsb->service();
 		handleButton();
 	}
-	cprintf("usb callback");
 #endif
 }
 
