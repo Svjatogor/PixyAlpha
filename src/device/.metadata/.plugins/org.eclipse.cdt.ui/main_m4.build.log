@@ -1,4 +1,4 @@
-13:27:44 **** Incremental Build of configuration SPIFI for project main_m4 ****
+14:18:52 **** Incremental Build of configuration SPIFI for project main_m4 ****
 make -r all 
 Building file: ../src/button.cpp
 Invoking: MCU C++ Compiler
@@ -7,38 +7,7 @@ arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG
 ../src/button.cpp:42:35: warning: unused variable 't' [-Wunused-variable]
   uint32_t max, min, current, sat, t; 
                                    ^
-In file included from ../../../common/inc/colorlut.h:19:0,
-                 from ../../../common/inc/blobs.h:21,
-                 from ../src/button.cpp:20:
-../../../common/inc/simplevector.h: In member function 'int SimpleVector<Object>::push_back(const Object&) [with Object = Point16]':
-../../../common/inc/simplevector.h:36:9: warning: assuming signed overflow does not occur when assuming that (X + c) < X is always false [-Wstrict-overflow]
-         if(newCapacity < m_size)
-         ^
 Finished building: ../src/button.cpp
- 
-Building file: ../src/main_m4.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/main_m4.d" -MT"src/main_m4.o" -MT"src/main_m4.d" -o "src/main_m4.o" "../src/main_m4.cpp"
-../src/main_m4.cpp: In function 'int main()':
-../src/main_m4.cpp:57:11: warning: unused variable 'major' [-Wunused-variable]
-  uint16_t major, minor, build;
-           ^
-../src/main_m4.cpp:57:18: warning: unused variable 'minor' [-Wunused-variable]
-  uint16_t major, minor, build;
-                  ^
-../src/main_m4.cpp:57:25: warning: unused variable 'build' [-Wunused-variable]
-  uint16_t major, minor, build;
-                         ^
-../src/main_m4.cpp:58:6: warning: unused variable 'i' [-Wunused-variable]
-  int i, res, count;
-      ^
-../src/main_m4.cpp:58:9: warning: unused variable 'res' [-Wunused-variable]
-  int i, res, count;
-         ^
-../src/main_m4.cpp:58:14: warning: unused variable 'count' [-Wunused-variable]
-  int i, res, count;
-              ^
-Finished building: ../src/main_m4.cpp
  
 Building target: main_m4.axf
 Invoking: MCU C++ Linker
@@ -62,12 +31,12 @@ make --no-print-directory post-build
 Performing post-build steps
 arm-none-eabi-size "main_m4.axf" ; arm-none-eabi-objcopy -v -O binary "main_m4.axf" "main_m4.bin" ; checksum -p LPC4330 -d "main_m4.bin" ; arm-none-eabi-objcopy -v -O ihex "main_m4.axf" pixy_firmware.hex
    text	   data	    bss	    dec	    hex	filename
- 104808	   2300	   2884	 109992	  1ada8	main_m4.axf
+ 104912	   2316	   2884	 110112	  1ae20	main_m4.axf
 copy from `main_m4.axf' [elf32-littlearm] to `main_m4.bin' [binary]
 Written checksum 0x67ff7646 at offset 0x1c in file main_m4.bin
 Previous value 0x00000000 at offset 0x1c in file main_m4.bin
 copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
  
 
-13:27:46 Build Finished (took 2s.161ms)
+14:18:53 Build Finished (took 1s.565ms)
 

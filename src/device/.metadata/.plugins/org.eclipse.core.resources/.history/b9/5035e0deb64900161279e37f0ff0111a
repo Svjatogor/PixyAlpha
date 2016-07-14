@@ -113,38 +113,38 @@ ButtonMachine::~ButtonMachine()
 
 void ButtonMachine::ledPipe()
 {
-	Points points;
-	RGBPixel rgb;
-	uint32_t color, r, g, b, n;
-	g_blobs->m_clut.growRegion(g_rawFrame, Point16(CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2), &points);
-	//points.clear();
-	//cprintf("led Pipe q_rawFrame.m_pixels = %d, q_rawFrame.width = %d,  m_height = %d", *(g_rawFrame.m_pixels), g_rawFrame.m_width, g_rawFrame.m_height);
-	cc_sendPoints(points, CL_GROW_INC, CL_GROW_INC, g_chirpUsb);
-
-	IterPixel ip(g_rawFrame, &points);
-	color = ip.averageRgb(&n);
-
-	rgbUnpack(color, &r, &g, &b);
-	scaleLED(r, g, b, n);
+//	Points points;
+//	RGBPixel rgb;
+//	uint32_t color, r, g, b, n;
+//	g_blobs->m_clut.growRegion(g_rawFrame, Point16(CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2), &points);
+//	//points.clear();
+////	cprintf("led Pipe q_rawFrame.m_pixels = %d, q_rawFrame.width = %d,  m_height = %d", *(g_rawFrame.m_pixels), g_rawFrame.m_width, g_rawFrame.m_height);
+////	// test points
+////	Point16* point = new Point16(0, 0);
+////	// add my point in vector
+////	points.push_back(*point);
+////	delete point;
+////	point = new Point16(4, 4);
+////	// add my point in vector
+////	points.push_back(*point);
+////	delete point;
+////	point = new Point16(196, 196);
+////	// add my point in vector
+////	points.push_back(*point);
+////	delete point;
+////	point = new Point16(196, 0);
+////	// add my point in vector
+////	points.push_back(*point);
+////	delete point;
+//	cc_sendPoints(points, CL_GROW_INC, CL_GROW_INC, g_chirpUsb);
+//
+//	IterPixel ip(g_rawFrame, &points);
+//	color = ip.averageRgb(&n);
+//
+//	rgbUnpack(color, &r, &g, &b);
+//	scaleLED(r, g, b, n);
 	printf("ledPipe");
-//	led_setRGB(255, 0, 0);
-//	// test points
-//	Point16* point = new Point16(0, 0);
-//	// add my point in vector
-//	points.push_back(*point);
-//	delete point;
-//	point = new Point16(4, 4);
-//	// add my point in vector
-//	points.push_back(*point);
-//	delete point;
-//	point = new Point16(196, 196);
-//	// add my point in vector
-//	points.push_back(*point);
-//	delete point;
-//	point = new Point16(196, 0);
-//	// add my point in vector
-//	points.push_back(*point);
-//	delete point;
+	led_setRGB(255, 0, 0);
 }
 
 void ButtonMachine::setSignature()

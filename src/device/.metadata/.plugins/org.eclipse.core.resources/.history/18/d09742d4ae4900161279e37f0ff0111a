@@ -70,8 +70,8 @@ int main(void)
 	exec_init(g_chirpUsb);
 
 #if 1
-    exec_addProg(&g_progBlobs);
-    ptLoadParams();
+//    exec_addProg(&g_progBlobs);
+//    ptLoadParams();
     exec_addProg(&g_progPt);
     exec_addProg(&g_progVideo, true);
     cprintf("Load params in firmware");
