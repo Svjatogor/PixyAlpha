@@ -542,7 +542,7 @@ int32_t cam_getFrameChirpFlags(const uint8_t &type, const uint16_t &xOffset, con
 
 	for (uint8_t i = 0; i < xWidth * yWidth; i++)
 	{
-		*(frame + i) -= 255;
+		(*frame) = 255;
 	}
 	// tell chirp to use this buffer
 	chirp->useBuffer(frame, len+xWidth*yWidth);
