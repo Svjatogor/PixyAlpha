@@ -52,7 +52,7 @@ int32_t cam_getFrameChirpFlags(const uint8_t &type, const uint16_t &xOffset, con
 int32_t cam_getFrame(uint8_t *memory, uint32_t memSize, uint8_t type, uint16_t xOffset, uint16_t yOffset, uint16_t xWidth, uint16_t yWidth);
 int32_t cam_setRegister(const uint8_t &reg, const uint8_t &value);
 int32_t cam_getRegister(const uint8_t &reg);
-void inverceImage(const uint16_t &xWidth, const uint16_t yWidth, int32_t len, uint8_t* frame);
+
 
 void cam_loadParams();
 

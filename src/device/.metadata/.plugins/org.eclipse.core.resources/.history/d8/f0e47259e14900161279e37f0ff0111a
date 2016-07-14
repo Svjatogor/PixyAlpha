@@ -23,7 +23,6 @@
 #include "param.h"
 #include <string.h>
 
-
  
 Program g_progVideo =
 {
