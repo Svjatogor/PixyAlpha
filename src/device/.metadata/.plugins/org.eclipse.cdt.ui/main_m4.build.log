@@ -1,4 +1,4 @@
-14:18:52 **** Incremental Build of configuration SPIFI for project main_m4 ****
+14:56:08 **** Incremental Build of configuration SPIFI for project main_m4 ****
 make -r all 
 Building file: ../src/button.cpp
 Invoking: MCU C++ Compiler
@@ -31,12 +31,12 @@ make --no-print-directory post-build
 Performing post-build steps
 arm-none-eabi-size "main_m4.axf" ; arm-none-eabi-objcopy -v -O binary "main_m4.axf" "main_m4.bin" ; checksum -p LPC4330 -d "main_m4.bin" ; arm-none-eabi-objcopy -v -O ihex "main_m4.axf" pixy_firmware.hex
    text	   data	    bss	    dec	    hex	filename
- 104912	   2316	   2884	 110112	  1ae20	main_m4.axf
+ 105368	   2316	   2884	 110568	  1afe8	main_m4.axf
 copy from `main_m4.axf' [elf32-littlearm] to `main_m4.bin' [binary]
 Written checksum 0x67ff7646 at offset 0x1c in file main_m4.bin
 Previous value 0x00000000 at offset 0x1c in file main_m4.bin
 copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
  
 
-14:18:53 Build Finished (took 1s.565ms)
+14:56:09 Build Finished (took 1s.556ms)
 

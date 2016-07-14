@@ -1,4 +1,4 @@
-14:34:13 **** Incremental Build of configuration Release for project main_m0 ****
+14:56:06 **** Incremental Build of configuration Release for project main_m0 ****
 make -r all 
 Building file: ../src/main_m0.c
 Invoking: MCU C Compiler
@@ -17,3 +17,6 @@ arm-none-eabi-size "main_m0.axf"; # arm-none-eabi-objcopy -v -O binary "main_m0.
    text	   data	    bss	    dec	    hex	filename
    8640	     16	     48	   8704	   2200	main_m0.axf
  
+
+14:56:07 Build Finished (took 1s.150ms)
+
