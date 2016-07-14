@@ -82,15 +82,13 @@ int main(void)
 #endif
 
 #if 0
-//	// load programs
-//	exec_addProg(&g_progBlobs);
-//	ptLoadParams();
-//	exec_addProg(&g_progPt);
-    cprintf ("load params");
+	// load programs
+	exec_addProg(&g_progBlobs);
+	ptLoadParams();
+	exec_addProg(&g_progPt);
 #if 0
-//	chaseLoadParams();
-//	exec_addProg(&g_progChase);
-    cprintf("if in load params");
+	chaseLoadParams();
+	exec_addProg(&g_progChase);
 
 #endif
 	// Check version firmware
@@ -110,7 +108,6 @@ int main(void)
 	prm_add("fwver", PRM_FLAG_INTERNAL, "", UINT16(FW_MAJOR_VER), UINT16(FW_MINOR_VER), UINT16(FW_BUILD_VER), END);
 
 	exec_loop();
-	cprintf("check firmware");
 #endif
 #if 0
 	#define DELAY 1000000

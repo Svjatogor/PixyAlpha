@@ -33,10 +33,10 @@
 
 // this routine needs to provide good feedback to the user as to whether the camera sees and segments the object correctly.
 // The key is to integrate the "growing algorithm" such that the growing algorithm is executed continuously and feedback about
-// the "goodness" of the grown region is returned.  We're choosing goodness to be some combination of size (because the bigger
-// the grown region the better) and saturation (because more saturation the more likely we've found the intended target, vs
-// the background, which is typically not saturated.)
-// In general with an RGB LED, you can only communicate 2 things--- brightness and hue, so you have 2 dof to play with....
+// the "goodness" of the grown region is returned.  We're choosing goodness to be some combination of size (because the bigger 
+// the grown region the better) and saturation (because more saturation the more likely we've found the intended target, vs 
+// the background, which is typically not saturated.)  
+// In general with an RGB LED, you can only communicate 2 things--- brightness and hue, so you have 2 dof to play with....   
 void scaleLED(uint32_t r, uint32_t g, uint32_t b, uint32_t n)
 {
 	uint32_t max, min, current, sat, t; 
@@ -104,7 +104,6 @@ void scaleLED(uint32_t r, uint32_t g, uint32_t b, uint32_t n)
 ButtonMachine::ButtonMachine()
 {
 	reset();
-	cprintf("reset\n");
 }
 
 ButtonMachine::~ButtonMachine()

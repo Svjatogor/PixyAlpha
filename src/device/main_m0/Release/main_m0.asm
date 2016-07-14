@@ -141,7 +141,7 @@
   87:../src/main_m0.c **** 	while(1)
   88:../src/main_m0.c **** 	{
   89:../src/main_m0.c **** 		 getFrame(&type, &memory, &offset, &offset, &width, &height);
-  90:../src/main_m0.c **** 		 //cprintf("memory = %d", memory);
+  90:../src/main_m0.c **** 		 printf("memory = %d", memory);
   91:../src/main_m0.c **** 		 i++;
   92:../src/main_m0.c **** 
   93:../src/main_m0.c **** 		 if (i%50==0)
@@ -211,10 +211,10 @@
   74              		.file 3 "c:\\nxp\\lpcxpresso_8.1.4_606\\lpcxpresso\\tools\\redlib\\include\\stdint.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 main_m0.c
-C:\Users\tmelniko\AppData\Local\Temp\ccMKyOhN.s:20     .rodata:00000000 $d
-C:\Users\tmelniko\AppData\Local\Temp\ccMKyOhN.s:24     .text.main:00000000 $t
-C:\Users\tmelniko\AppData\Local\Temp\ccMKyOhN.s:29     .text.main:00000000 main
-C:\Users\tmelniko\AppData\Local\Temp\ccMKyOhN.s:66     .text.main:0000002c $d
+C:\Users\tmelniko\AppData\Local\Temp\ccRR1BIb.s:20     .rodata:00000000 $d
+C:\Users\tmelniko\AppData\Local\Temp\ccRR1BIb.s:24     .text.main:00000000 $t
+C:\Users\tmelniko\AppData\Local\Temp\ccRR1BIb.s:29     .text.main:00000000 main
+C:\Users\tmelniko\AppData\Local\Temp\ccRR1BIb.s:66     .text.main:0000002c $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
