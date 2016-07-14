@@ -91,12 +91,12 @@ void scaleLED(uint32_t r, uint32_t g, uint32_t b, uint32_t n)
 	rgbUnpack(saturate(rgbPack(r, g, b)), &r, &g, &b);
 #endif
 	//cprintf("r %d g %d b %d min %d max %d sat %d sat2 %d n %d\n", r, g, b, min, max, sat, n);
-//	if (r > g && r > b)
-//		cprintf("red");
-//	else if (g > r && g > b)
-//		cprintf("green");
-//	else if (b > r && b > g)
-//		cprintf("blue");
+	if (r > g && r > b)
+		cprintf("red");
+	else if (g > r && g > b)
+		cprintf("green");
+	else if (b > r && b > g)
+		cprintf("blue");
 	led_setRGB(r, g, b);
 }
 	
@@ -104,7 +104,7 @@ void scaleLED(uint32_t r, uint32_t g, uint32_t b, uint32_t n)
 ButtonMachine::ButtonMachine()
 {
 	reset();
-//	cprintf("reset\n");
+	cprintf("reset\n");
 }
 
 ButtonMachine::~ButtonMachine()
@@ -347,7 +347,7 @@ void ButtonMachine::reset()
 	m_ledPipe = false;
 	led_set(0);
 	m_goto = 0;
-	//cprintf("reset");
+	cprintf("reset");
 }
 
 void ButtonMachine::flashLED(uint8_t flashes)

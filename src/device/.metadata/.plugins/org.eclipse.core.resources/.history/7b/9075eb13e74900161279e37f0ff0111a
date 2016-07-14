@@ -163,5 +163,6 @@ int ptLoop()
 	cc_sendBlobs(g_chirpUsb, blobs, numBlobs, ccBlobs, numCCBlobs);
 
 	cc_setLED();
+	cprintf("send_blobs");
 	return 0;
 }
