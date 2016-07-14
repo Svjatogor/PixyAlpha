@@ -87,7 +87,6 @@ int main(void)
 	while(1)
 	{
 		 getFrame(&type, &memory, &offset, &offset, &width, &height);
-		 //cprintf("memory = %d", memory);
 		 i++;
 
 		 if (i%50==0)

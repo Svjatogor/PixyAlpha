@@ -104,8 +104,8 @@ int main(void)
 	if (count==0)
 		prm_format();
 
-	//check version
-	prm_add("fwver", PRM_FLAG_INTERNAL, "", UINT16(FW_MAJOR_VER), UINT16(FW_MINOR_VER), UINT16(FW_BUILD_VER), END);
+   	 //check version
+	 prm_add("fwver", PRM_FLAG_INTERNAL, "", UINT16(FW_MAJOR_VER), UINT16(FW_MINOR_VER), UINT16(FW_BUILD_VER), END);
 
 	exec_loop();
 #endif

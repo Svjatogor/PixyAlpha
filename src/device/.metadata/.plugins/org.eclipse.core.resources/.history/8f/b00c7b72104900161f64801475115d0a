@@ -106,7 +106,7 @@ int main(void)
 
 	//check version
 	prm_add("fwver", PRM_FLAG_INTERNAL, "", UINT16(FW_MAJOR_VER), UINT16(FW_MINOR_VER), UINT16(FW_BUILD_VER), END);
-
+	cprintf("Firmware %d", FW_MAJOR_VER);
 	exec_loop();
 #endif
 #if 0
