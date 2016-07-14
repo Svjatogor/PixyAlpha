@@ -1,4 +1,4 @@
-15:16:08 **** Incremental Build of configuration SPIFI for project main_m4 ****
+19:01:59 **** Incremental Build of configuration SPIFI for project main_m4 ****
 make -r all 
 Building target: main_m4.axf
 Invoking: MCU C++ Linker
@@ -29,5 +29,5 @@ Previous value 0x00000000 at offset 0x1c in file main_m4.bin
 copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
  
 
-15:16:09 Build Finished (took 1s.20ms)
+19:02:00 Build Finished (took 980ms)
 
