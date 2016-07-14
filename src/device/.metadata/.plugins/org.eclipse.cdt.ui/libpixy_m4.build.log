@@ -1,6 +1,58 @@
-19:01:57 **** Incremental Build of configuration Release for project libpixy_m4 ****
+19:27:50 **** Incremental Build of configuration Release for project libpixy_m4 ****
 make -r all 
-make: Nothing to be done for `all'.
+Building file: ../src/camera.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_NONE -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/camera.d" -MT"src/camera.o" -MT"src/camera.d" -o "src/camera.o" "../src/camera.cpp"
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp: In function 'int32_t cam_getFrame(uint8_t*, uint32_t, uint8_t, uint16_t, uint16_t, uint16_t, uint16_t)':
+../src/camera.cpp:526:4: error: 'frame' was not declared in this scope
+    frame[len + i + j * xWidth] = 255 - frame[len + i + j * xWidth];
+    ^
+../src/camera.cpp:526:10: error: 'len' was not declared in this scope
+    frame[len + i + j * xWidth] = 255 - frame[len + i + j * xWidth];
+          ^
+../src/camera.cpp: In function 'void cam_setRegs(const uint8_t*, int)':
+../src/camera.cpp:574:17: warning: unused variable 'q' [-Wunused-variable]
+    volatile int q = 0;
+                 ^
+make: *** [src/camera.o] Error 1
 
-19:01:57 Build Finished (took 256ms)
+19:27:51 Build Finished (took 645ms)
 

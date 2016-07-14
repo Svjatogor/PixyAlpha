@@ -521,6 +521,7 @@ int32_t cam_getFrame(uint8_t *memory, uint32_t memSize, uint8_t type, uint16_t x
 		g_rawFrame.m_width = xWidth;
 		g_rawFrame.m_height = yWidth;
 	}
+
 	return responseInt;
 }
 
@@ -539,9 +540,13 @@ int32_t cam_getFrameChirpFlags(const uint8_t &type, const uint16_t &xOffset, con
 	// write frame after chirp args
 	result = cam_getFrame(frame+len, SRAM1_SIZE-len, type, xOffset, yOffset, xWidth, yWidth);
 
+	for (uint16_t j = 0; j < yWidth; j++){
+		for (uint16_t i = 0; i < xWidth; i++){
+			frame[len + i + j * xWidth] = 255 - frame[len + i + j * xWidth];
+		}
+	}
 	// tell chirp to use this buffer
 	chirp->useBuffer(frame, len+xWidth*yWidth);
-
 	return result;
 }
 
