@@ -33,10 +33,10 @@
 
 // this routine needs to provide good feedback to the user as to whether the camera sees and segments the object correctly.
 // The key is to integrate the "growing algorithm" such that the growing algorithm is executed continuously and feedback about
-// the "goodness" of the grown region is returned.  We're choosing goodness to be some combination of size (because the bigger
-// the grown region the better) and saturation (because more saturation the more likely we've found the intended target, vs
-// the background, which is typically not saturated.)
-// In general with an RGB LED, you can only communicate 2 things--- brightness and hue, so you have 2 dof to play with....
+// the "goodness" of the grown region is returned.  We're choosing goodness to be some combination of size (because the bigger 
+// the grown region the better) and saturation (because more saturation the more likely we've found the intended target, vs 
+// the background, which is typically not saturated.)  
+// In general with an RGB LED, you can only communicate 2 things--- brightness and hue, so you have 2 dof to play with....   
 void scaleLED(uint32_t r, uint32_t g, uint32_t b, uint32_t n)
 {
 	uint32_t max, min, current, sat, t; 
@@ -90,21 +90,14 @@ void scaleLED(uint32_t r, uint32_t g, uint32_t b, uint32_t n)
 	// saturate
 	rgbUnpack(saturate(rgbPack(r, g, b)), &r, &g, &b);
 #endif
-	//cprintf("r %d g %d b %d min %d max %d sat %d sat2 %d n %d\n", r, g, b, min, max, sat, n);
-//	if (r > g && r > b)
-//		cprintf("red");
-//	else if (g > r && g > b)
-//		cprintf("green");
-//	else if (b > r && b > g)
-//		cprintf("blue");
-	led_setRGB(r, g, b);
+	//cprintf("r %d g %d b %d min %d max %d sat %d sat2 %d n %d\n", r, g, b, min, max, sat, sat2, n);
+	led_setRGB(r, g, b);	 	
 }
 	
 
 ButtonMachine::ButtonMachine()
 {
 	reset();
-//	cprintf("reset\n");
 }
 
 ButtonMachine::~ButtonMachine()
@@ -116,9 +109,7 @@ void ButtonMachine::ledPipe()
 	Points points;
 	RGBPixel rgb;
 	uint32_t color, r, g, b, n;
-	g_blobs->m_clut.growRegion(g_rawFrame, Point16(CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2), &points);
-	//points.clear();
-	//cprintf("led Pipe q_rawFrame.m_pixels = %d, q_rawFrame.width = %d,  m_height = %d", *(g_rawFrame.m_pixels), g_rawFrame.m_width, g_rawFrame.m_height);
+	g_blobs->m_clut.growRegion(g_rawFrame, Point16(CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2), &points);	
 	cc_sendPoints(points, CL_GROW_INC, CL_GROW_INC, g_chirpUsb);
 
 	IterPixel ip(g_rawFrame, &points);
@@ -126,31 +117,12 @@ void ButtonMachine::ledPipe()
 
 	rgbUnpack(color, &r, &g, &b);
 	scaleLED(r, g, b, n);
-	printf("ledPipe");
-//	led_setRGB(255, 0, 0);
-//	// test points
-//	Point16* point = new Point16(0, 0);
-//	// add my point in vector
-//	points.push_back(*point);
-//	delete point;
-//	point = new Point16(4, 4);
-//	// add my point in vector
-//	points.push_back(*point);
-//	delete point;
-//	point = new Point16(196, 196);
-//	// add my point in vector
-//	points.push_back(*point);
-//	delete point;
-//	point = new Point16(196, 0);
-//	// add my point in vector
-//	points.push_back(*point);
-//	delete point;
 }
 
 void ButtonMachine::setSignature()
 {
 	int res;
-	cprintf("setSignature");
+
 	// grow region, create model, save
 	res = cc_setSigPoint(0, m_index, CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2);
 	if (res<0)
@@ -162,7 +134,7 @@ void ButtonMachine::setSignature()
 bool ButtonMachine::handleSignature()
 {
 	uint32_t bt;
-	//cprintf("handleSignature");
+
 	bt = button();
 
    	if (m_ledPipe) // if ledpipe, grab frame, but don't flush 
@@ -269,7 +241,7 @@ bool ButtonMachine::handleSignature()
 int ButtonMachine::selectProgram(int progs)
 {
 	int result;
-	cprintf("selectProgram");
+
 	uint32_t bt; 
 
 	if (progs<=1)
@@ -347,7 +319,6 @@ void ButtonMachine::reset()
 	m_ledPipe = false;
 	led_set(0);
 	m_goto = 0;
-	//cprintf("reset");
 }
 
 void ButtonMachine::flashLED(uint8_t flashes)

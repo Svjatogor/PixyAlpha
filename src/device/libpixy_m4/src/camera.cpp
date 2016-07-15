@@ -480,7 +480,6 @@ int cam_testPattern(const uint8_t &enable)
 
 int32_t cam_getFrame(uint8_t *memory, uint32_t memSize, uint8_t type, uint16_t xOffset, uint16_t yOffset, uint16_t xWidth, uint16_t yWidth)
 {
-	printf("getFrame");
 	int32_t res;
 	int32_t responseInt = -1;
 
@@ -494,7 +493,8 @@ int32_t cam_getFrame(uint8_t *memory, uint32_t memSize, uint8_t type, uint16_t x
 		if (xOffset+xWidth>CAM_RES0_WIDTH || yOffset+yWidth>CAM_RES0_HEIGHT)
 			return -1;
 	}
-	else if (res==1) {
+	else if (res==1) 
+	{
 		if (xOffset+xWidth>CAM_RES1_WIDTH || yOffset+yWidth>CAM_RES1_HEIGHT)
 			return -1;
 	}
@@ -521,6 +521,7 @@ int32_t cam_getFrame(uint8_t *memory, uint32_t memSize, uint8_t type, uint16_t x
 		g_rawFrame.m_width = xWidth;
 		g_rawFrame.m_height = yWidth;
 	}
+
 	return responseInt;
 }
 
@@ -534,13 +535,13 @@ int32_t cam_getFrameChirpFlags(const uint8_t &type, const uint16_t &xOffset, con
 	int32_t result, len;
 	uint8_t *frame = (uint8_t *)SRAM1_LOC;
 
-	// fill buffer contents manually for return data
+	// fill buffer contents manually for return data 
 	len = Chirp::serialize(chirp, frame, SRAM1_SIZE, HTYPE(FOURCC('B','A','8','1')), HINT8(renderFlags), UINT16(xWidth), UINT16(yWidth), UINTS8_NO_COPY(xWidth*yWidth), END);
 	// write frame after chirp args
 	result = cam_getFrame(frame+len, SRAM1_SIZE-len, type, xOffset, yOffset, xWidth, yWidth);
-	// inverceImage(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, len, frame);
+
 	// tell chirp to use this buffer
-	chirp->useBuffer(frame, len+xWidth*yWidth);
+	chirp->useBuffer(frame, len+xWidth*yWidth); 
 
 	return result;
 }
@@ -651,82 +652,6 @@ void cam_loadParams()
 		{
 			prm_get("AWB Value", &wbv, END); // grab saved WBV and set it
 			cam_setWBV(wbv);
-		}
-	}
-}
-
-//int renderBA81(uint8_t renderFlags, uint16_t width, uint16_t height, uint32_t frameLen, uint8_t *frame)
-//{
-//    uint16_t x, y;
-//    uint8_t r, g, b;
-//
-//
-//    // skip first line
-//    frame += width;
-//
-//    // don't render top and bottom rows, and left and rightmost columns because of color
-//    // interpolation
-//    //uint32_t decodedimage[(width-2)*(height-2)];
-//    uint16_t decodedimage[(width-2)*(height-2)];
-//
-//    uint16_t* line = decodedimage;
-//    for (y=1; y<height-1; y++)
-//    {
-//        //line = (unsigned int *)img.scanLine(y-1);
-//        frame++;
-//        for (x=1; x<width-1; x++, frame++)
-//        {
-//            interpolateBayer(width, x, y, frame, &r, &g, &b);
-//            //*line++ = (0xff<<24) | (r<<16) | (g<<8) | (b<<0);
-//            *line++ = RGB(r,g,b);
-//        }
-//        frame++;
-//    }
-//
-//    tft_draw_bitmap_unscaled(0,0,width-2,height-2,decodedimage);
-//
-//    return 0;
-//}
-//
-//inline void interpolateBayer(uint16_t width, uint16_t x, uint16_t y, uint8_t *pixel, uint8_t* r, uint8_t* g, uint8_t* b)
-//{
-//    if (y&1)
-//    {
-//        if (x&1)
-//        {
-//            *r = *pixel;
-//            *g = (*(pixel-1)+*(pixel+1)+*(pixel+width)+*(pixel-width))>>2;
-//            *b = (*(pixel-width-1)+*(pixel-width+1)+*(pixel+width-1)+*(pixel+width+1))>>2;
-//        }
-//        else
-//        {
-//            *r = (*(pixel-1)+*(pixel+1))>>1;
-//            *g = *pixel;
-//            *b = (*(pixel-width)+*(pixel+width))>>1;
-//        }
-//    }
-//    else
-//    {
-//        if (x&1)
-//        {
-//            *r = (*(pixel-width)+*(pixel+width))>>1;
-//            *g = *pixel;
-//            *b = (*(pixel-1)+*(pixel+1))>>1;
-//        }
-//        else
-//        {
-//            *r = (*(pixel-width-1)+*(pixel-width+1)+*(pixel+width-1)+*(pixel+width+1))>>2;
-//            *g = (*(pixel-1)+*(pixel+1)+*(pixel+width)+*(pixel-width))>>2;
-//            *b = *pixel;
-//        }
-//    }
-//
-//}
-
-void inverceImage(const uint16_t &xWidth, const uint16_t yWidth, int32_t len, uint8_t* frame){
-	for (uint16_t j = 0; j < yWidth; j++){
-		for (uint16_t i = 0; i < xWidth; i++){
-			frame[len + i + j * xWidth] = 255 - frame[len + i + j * xWidth];
 		}
 	}
 }

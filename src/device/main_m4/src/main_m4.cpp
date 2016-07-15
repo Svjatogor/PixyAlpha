@@ -56,15 +56,15 @@ int main(void)
 {
 	uint16_t major, minor, build;
 	int i, res, count;
+
 	// main init of hardware plus a version-dependent number for the parameters that will
 	// force a format of parameter between version numbers.  
 #ifdef KEIL
  	pixyInit(SRAM3_LOC, &LR0[0], sizeof(LR0));
- 	cprintf("pixy init keil");
 #else
 	pixyInit();
-	cprintf("pixy init");
 #endif
+
 	cc_init(g_chirpUsb);
 	ser_init();
 	exec_init(g_chirpUsb);
@@ -74,7 +74,6 @@ int main(void)
     ptLoadParams();
     exec_addProg(&g_progPt);
     exec_addProg(&g_progVideo, true);
-    cprintf("Load params in firmware");
 #if 0
     cam_setMode(CAM_MODE1);
     while(1)
@@ -85,21 +84,17 @@ int main(void)
 #endif
 
 #if 0
-//	// load programs
+	// load programs
 	exec_addProg(&g_progBlobs);
 	ptLoadParams();
 	exec_addProg(&g_progPt);
-    cprintf ("load params");
 #if 0
 	chaseLoadParams();
 	exec_addProg(&g_progChase);
-    cprintf("if in load params");
-
 #endif
-	// Check version firmware
 	exec_addProg(&g_progVideo, true);
 
-	//this code formats if the version has changed
+	// this code formats if the version has changed
 	for (i=0, count=0; i<25; i++)
 	{
 		res = prm_get("fwver", &major, &minor, &build, END);
@@ -109,11 +104,10 @@ int main(void)
 	if (count==0)
 		prm_format();
 
-	//check version
+   	// check version
 	prm_add("fwver", PRM_FLAG_INTERNAL, "", UINT16(FW_MAJOR_VER), UINT16(FW_MINOR_VER), UINT16(FW_BUILD_VER), END);
 
 	exec_loop();
-	cprintf("check firmware");
 #endif
 #if 0
 	#define DELAY 1000000
@@ -135,7 +129,7 @@ int main(void)
 		rcs_setPos(1, 1000);
 		delayus(DELAY);
 	}
-	cprintf("DELAY");
+
 #endif
 #if 0
 	while(1)
@@ -143,7 +137,6 @@ int main(void)
 		g_chirpUsb->service();
 		handleButton();
 	}
-	cprintf("usb callback");
 #endif
 }
 

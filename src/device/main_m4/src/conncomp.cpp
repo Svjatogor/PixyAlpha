@@ -95,8 +95,7 @@ static const ProcModule g_module[] =
 	END
 };
 
-// Custom colors
-const uint32_t g_colors[] =
+const uint32_t g_colors[] = 
 {
 	0xffffff, // 0 white
 	0xff0000, // 1 red
@@ -107,20 +106,6 @@ const uint32_t g_colors[] =
 	0x0000ff, // 6 blue
 	0xff00ff  // 7 violet
 };
-
-//// My colors
-//const uint32_t g_colors[] =
-//{
-//	0xff0000, // 4 red
-//	0xff0000, // 4 red
-//	0xff0000, // 4 red
-//	0xff0000, // 4 red
-//	0xff0000, // 4 red
-//	0xff0000, // 4 red
-//	0xff0000, // 4 red
-//	0xff0000, // 4 red
-//};
-
 
 static ChirpProc g_getRLSFrameM0 = -1;
 
@@ -297,7 +282,7 @@ int32_t cc_setSigRegion(const uint32_t &type, const uint8_t &signum, const uint1
 	prm_set(id, INTS8(sizeof(ColorSignature), sig), END);
 	cc_loadLut();
 
-	cprintf("Signature set! Second firmware :*\n");
+	cprintf("Signature set! I change firmware! :)\n");
 
     exec_sendEvent(chirp, EVT_PARAM_CHANGE);
 	return 0;
@@ -462,14 +447,12 @@ int32_t cc_setMemory(const uint32_t &location, const uint32_t &len, const uint8_
 int cc_sendBlobs(Chirp *chirp, const BlobA *blobs, uint32_t len, uint8_t renderFlags)
 {
 	CRP_RETURN(chirp, HTYPE(FOURCC('C','C','B','1')), HINT8(renderFlags), HINT16(CAM_RES2_WIDTH), HINT16(CAM_RES2_HEIGHT), UINTS16(len*sizeof(BlobA)/sizeof(uint16_t), blobs), END);
-	cprintf("send blobs");
 	return 0;
 }
 
 int cc_sendBlobs(Chirp *chirp, const BlobA *blobs, uint32_t len, const BlobB *ccBlobs, uint32_t ccLen, uint8_t renderFlags)
 {
 	CRP_RETURN(chirp, HTYPE(FOURCC('C','C','B','2')), HINT8(renderFlags), HINT16(CAM_RES2_WIDTH), HINT16(CAM_RES2_HEIGHT), UINTS16(len*sizeof(BlobA)/sizeof(uint16_t), blobs), UINTS16(ccLen*sizeof(BlobB)/sizeof(uint16_t), ccBlobs), END);
-	cprintf("send blobs");
 	return 0;
 }
 
