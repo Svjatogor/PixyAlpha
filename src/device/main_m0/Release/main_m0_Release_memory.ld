@@ -5,7 +5,7 @@
  * Generated linker script file for LPC4330-M0
  * Created from memory.ldt by FMCreateLinkMemory
  * Using Freemarker v2.3.23
- * LPCXpresso v8.1.4 [Build 606] [2016-03-14]  on Jul 15, 2016 10:57:35 AM
+ * LPCXpresso v8.1.4 [Build 606] [2016-03-14]  on Jul 15, 2016 11:05:22 AM
  */
 
 MEMORY

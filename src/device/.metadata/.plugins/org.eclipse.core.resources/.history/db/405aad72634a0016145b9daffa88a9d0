@@ -655,12 +655,3 @@ void cam_loadParams()
 		}
 	}
 }
-
-// inverce image
-void inverceImage(const uint16_t &xWidth, const uint16_t yWidth, int32_t len, uint8_t* frame){
-	for (uint16_t j = 0; j < yWidth; j++){
-		for (uint16_t i = 0; i < xWidth; i++){
-			frame[len + i + j * xWidth] = 255 - frame[len + i + j * xWidth];
-		}
-	}
-}
