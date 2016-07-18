@@ -150,6 +150,7 @@ int blobsLoop()
 
 	// send blobs
 	g_blobs->getBlobs(&blobs, &numBlobs, &ccBlobs, &numCCBlobs);
+	cprintf("blobsLoop");
 	cc_sendBlobs(g_chirpUsb, blobs, numBlobs, ccBlobs, numCCBlobs);
 
 	ser_getSerial()->update();

@@ -19,7 +19,6 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 add_definitions(-D__LINUX__)
 ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
-
 file(STRINGS "cmake/VERSION" LIBPIXY_VERSION)
 add_definitions(-D__LIBPIXY_VERSION__="${LIBPIXY_VERSION}")
 
@@ -37,7 +36,7 @@ include_directories (src
                      src/util
                      include
                      ../../common
-                     ${Boost_INCLUDE_DIR}
+                     C:/Program Files/boost/boost_1_55_0
                      ${LIBUSB_1_INCLUDE_DIRS})
 
 install (TARGETS pixyusb DESTINATION lib)

@@ -125,6 +125,7 @@ void ButtonMachine::setSignature()
 
 	// grow region, create model, save
 	res = cc_setSigPoint(0, m_index, CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2);
+	cprintf("%dx%d", CAM_RES2_WIDTH, CAM_RES2_HEIGHT);
 	if (res<0)
 		return;
 	exec_sendEvent(g_chirpUsb, EVT_PARAM_CHANGE);

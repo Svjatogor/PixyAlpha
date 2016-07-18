@@ -256,6 +256,7 @@ int cc_init(Chirp *chirp)
 // this routine assumes it can grab valid pixels in video memory described by the box
 int32_t cc_setSigRegion(const uint32_t &type, const uint8_t &signum, const uint16_t &xoffset, const uint16_t &yoffset, const uint16_t &width, const uint16_t &height, Chirp *chirp)
 {
+
 	char id[32];
 	ColorSignature *sig;
 	RectA region(xoffset, yoffset, width, height);
@@ -387,7 +388,7 @@ int32_t cc_getRLSFrameChirpFlags(Chirp *chirp, uint8_t renderFlags)
 	uint8_t *scratchMem, *lut, *mem;
 	uint32_t len, memSize, numq;
 
-
+	cprintf("cc_getRLSFrameChirpFlags");
 	lut = (uint8_t *)SRAM1_LOC + SRAM1_SIZE - CL_LUT_SIZE;
 	scratchMem = (uint8_t *)SRAM1_LOC + SRAM1_SIZE - CL_LUT_SIZE - 0x1000;  // 4K should be enough for scratch mem (320/3+2)*8 + 320*8 = 3424
 	mem = (uint8_t *)SRAM1_LOC;
@@ -446,12 +447,14 @@ int32_t cc_setMemory(const uint32_t &location, const uint32_t &len, const uint8_
 
 int cc_sendBlobs(Chirp *chirp, const BlobA *blobs, uint32_t len, uint8_t renderFlags)
 {
+	cprintf("cc_sendBlobs(Chirp *chirp, const BlobA *blobs, uint32_t len, uint8_t renderFlags)");
 	CRP_RETURN(chirp, HTYPE(FOURCC('C','C','B','1')), HINT8(renderFlags), HINT16(CAM_RES2_WIDTH), HINT16(CAM_RES2_HEIGHT), UINTS16(len*sizeof(BlobA)/sizeof(uint16_t), blobs), END);
 	return 0;
 }
 
 int cc_sendBlobs(Chirp *chirp, const BlobA *blobs, uint32_t len, const BlobB *ccBlobs, uint32_t ccLen, uint8_t renderFlags)
 {
+	cprintf("cc_sendBlobs");
 	CRP_RETURN(chirp, HTYPE(FOURCC('C','C','B','2')), HINT8(renderFlags), HINT16(CAM_RES2_WIDTH), HINT16(CAM_RES2_HEIGHT), UINTS16(len*sizeof(BlobA)/sizeof(uint16_t), blobs), UINTS16(ccLen*sizeof(BlobB)/sizeof(uint16_t), ccBlobs), END);
 	return 0;
 }
@@ -503,6 +506,7 @@ void cc_setLED()
 
 void cc_sendPoints(Points &points, uint16_t width, uint16_t height, Chirp *chirp, uint8_t renderFlags)
 {
+	cprintf("cc_sendPoints");
 	uint32_t len;
 	uint8_t *mem = (uint8_t *)SRAM1_LOC;
 

@@ -160,6 +160,7 @@ int ptLoop()
 
 	// send blobs
 	g_blobs->getBlobs(&blobs, &numBlobs, &ccBlobs, &numCCBlobs);
+	cprintf("ptLoop");
 	cc_sendBlobs(g_chirpUsb, blobs, numBlobs, ccBlobs, numCCBlobs);
 
 	cc_setLED();

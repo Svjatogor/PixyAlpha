@@ -1,5 +1,43 @@
-11:05:24 **** Incremental Build of configuration SPIFI for project main_m4 ****
+14:34:20 **** Incremental Build of configuration SPIFI for project main_m4 ****
 make -r all 
+Building file: ../src/progblobs.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progblobs.d" -MT"src/progblobs.o" -MT"src/progblobs.d" -o "src/progblobs.o" "../src/progblobs.cpp"
+../src/progblobs.cpp:32:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/progblobs.cpp:32:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+Finished building: ../src/progblobs.cpp
+ 
+Building file: ../src/progchase.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progchase.d" -MT"src/progchase.o" -MT"src/progchase.d" -o "src/progchase.o" "../src/progchase.cpp"
+../src/progchase.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/progchase.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/progchase.cpp: In member function 'int32_t MotorLoop::update(int32_t)':
+../src/progchase.cpp:55:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  if (m_prevError!=0x80000000)
+                 ^
+../src/progchase.cpp:66:9: warning: 'vel' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  return vel;
+         ^
+Finished building: ../src/progchase.cpp
+ 
+Building file: ../src/progpt.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progpt.d" -MT"src/progpt.o" -MT"src/progpt.d" -o "src/progpt.o" "../src/progpt.cpp"
+../src/progpt.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/progpt.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/progpt.cpp: In member function 'void ServoLoop::update(int32_t)':
+../src/progpt.cpp:55:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  if (m_prevError!=0x80000000)
+                 ^
+Finished building: ../src/progpt.cpp
+ 
 Building target: main_m4.axf
 Invoking: MCU C++ Linker
 arm-none-eabi-c++ -nostdlib -L"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src" -L"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\Release" -Xlinker -Map="main_m4.map" -Xlinker --gc-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -T "SPIFI_link_template.ld" -L ../linkscripts -o "main_m4.axf"  ./src/analogdig.o ./src/button.o ./src/conncomp.o ./src/cr_cpp_config.o ./src/cr_start_m0.o ./src/cr_startup_lpc43xx.o ./src/exec.o ./src/i2c.o ./src/main_m4.o ./src/progblobs.o ./src/progchase.o ./src/progpt.o ./src/progvideo.o ./src/serial.o ./src/spi.o ./src/uart.o  C:/Users/tmelniko/Documents/GitHub/PixyFirmware/PixyFirmware/src/device/main_m0/Release/main_m0.axf.o -llibpixy_m4 -lfalcon_m4_spifi_drv
@@ -22,12 +60,12 @@ make --no-print-directory post-build
 Performing post-build steps
 arm-none-eabi-size "main_m4.axf" ; arm-none-eabi-objcopy -v -O binary "main_m4.axf" "main_m4.bin" ; checksum -p LPC4330 -d "main_m4.bin" ; arm-none-eabi-objcopy -v -O ihex "main_m4.axf" pixy_firmware.hex
    text	   data	    bss	    dec	    hex	filename
- 104928	   2316	   2884	 110128	  1ae30	main_m4.axf
+ 104960	   2316	   2884	 110160	  1ae50	main_m4.axf
 copy from `main_m4.axf' [elf32-littlearm] to `main_m4.bin' [binary]
 Written checksum 0x67ff7646 at offset 0x1c in file main_m4.bin
 Previous value 0x00000000 at offset 0x1c in file main_m4.bin
 copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
  
 
-11:05:25 Build Finished (took 1s.47ms)
+14:34:23 Build Finished (took 3s.408ms)
 

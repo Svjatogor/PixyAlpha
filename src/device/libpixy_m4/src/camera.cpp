@@ -527,6 +527,7 @@ int32_t cam_getFrame(uint8_t *memory, uint32_t memSize, uint8_t type, uint16_t x
 
 int32_t cam_getFrameChirp(const uint8_t &type, const uint16_t &xOffset, const uint16_t &yOffset, const uint16_t &xWidth, const uint16_t &yWidth, Chirp *chirp)
 {
+
 	return cam_getFrameChirpFlags(type, xOffset, yOffset, xWidth, yWidth, chirp);
 }
 
@@ -539,6 +540,8 @@ int32_t cam_getFrameChirpFlags(const uint8_t &type, const uint16_t &xOffset, con
 	len = Chirp::serialize(chirp, frame, SRAM1_SIZE, HTYPE(FOURCC('B','A','8','1')), HINT8(renderFlags), UINT16(xWidth), UINT16(yWidth), UINTS8_NO_COPY(xWidth*yWidth), END);
 	// write frame after chirp args
 	result = cam_getFrame(frame+len, SRAM1_SIZE-len, type, xOffset, yOffset, xWidth, yWidth);
+
+	inverceImage(xWidth, yWidth, len, frame);
 
 	// tell chirp to use this buffer
 	chirp->useBuffer(frame, len+xWidth*yWidth); 
