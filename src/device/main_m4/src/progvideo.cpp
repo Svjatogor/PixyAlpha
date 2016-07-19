@@ -43,7 +43,16 @@ void sendCustom(uint8_t renderFlags=RENDER_FLAG_FLUSH)
 	uint8_t *frame = (uint8_t *)SRAM1_LOC;
 	uint32_t fcc;
 
-	cam_getFrameChirp(CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT, g_chirpUsb);
+	// fill buffer contents manually for return data
+	len = Chirp::serialize(g_chirpUsb, frame, SRAM1_SIZE, HTYPE(FOURCC('C','M','V','2')), HINT8(renderFlags), UINT16(CAM_RES2_WIDTH), UINT16(CAM_RES2_HEIGHT), UINTS8_NO_COPY(CAM_RES2_WIDTH*CAM_RES2_HEIGHT), END);
+	// write frame after chirp args
+	cam_getFrame(frame+len, SRAM1_SIZE-len, CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT);
+
+	convolutionImage(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, len, frame, true);
+	//inverceImage(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, len, frame);
+	// tell chirp to use this buffer
+	g_chirpUsb->useBuffer(frame, len+CAM_RES2_WIDTH*CAM_RES2_HEIGHT);
+
 //	if (g_execArg==1)
 //	{
 //		cprintf("g_execArg==1");
@@ -77,9 +86,13 @@ void sendCustom(uint8_t renderFlags=RENDER_FLAG_FLUSH)
 int videoLoop()
 {
 	if (g_execArg==0){
+		cprintf("g_execArg==0");
 		cam_getFrameChirp(CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT, g_chirpUsb);
 	}
 	else 
+	{
+		cprintf("loop else");
 		sendCustom();
+	}
 	return 0;
 }

@@ -549,7 +549,7 @@ int32_t cam_getFrameChirpFlags(const uint8_t &type, const uint16_t &xOffset, con
 //		cprintf("%d ", frame[len + (yWidth - 2) * xWidth + i]);
 //	}
 	//inverceImage(xWidth, yWidth, len, frame);
-	convolutionImage(xWidth, yWidth, len, frame);
+	//convolutionImage(xWidth, yWidth, len, frame);
 	
 //	for (int i = 0; i < xWidth; i++){
 //		cprintf("%d ", frame[len + 2 * xWidth + i]);
@@ -683,44 +683,65 @@ void inverceImage(const uint16_t &xWidth, const uint16_t yWidth, int32_t len, ui
 		}
 	}
 }
-
+//uint8_t* frame_clone = new uint8_t[30000];
 // add convolution 3x3
-void convolution(uint8_t* frame_up_left_pixel){
-	uint8_t new_pixel = 0;
-	uint8_t kernel[9];
-	// увеличение яркости
-	        kernel[0]=-0.1;
-	        kernel[1]=0.2;
-	        kernel[2]=-0.1;
+void convolution(uint8_t* frame_up_left_pixel, uint16_t xWidth, uint16_t offset, bool flag_convolution){
 
-	        kernel[3]=0.2;
-	        kernel[4]=3;
-	        kernel[5]=0.2;
+	float new_pixel = 0;
+	float kernel[9];
+	if (flag_convolution){
+		kernel[0]=0.11;
+		kernel[1]=0.11;
+		kernel[2]=0.11;
 
-	        kernel[6]=-0.1;
-	        kernel[7]=0.2;
-	        kernel[8]=-0.1;w pixel value
+		kernel[3]=0.11;
+		kernel[4]=0.11;
+		kernel[5]=0.11;
+
+		kernel[6]=0.11;
+		kernel[7]=0.11;
+		kernel[8]=0.11;
+	}
+	else{
+		// увеличение яркости
+        kernel[0]=-0.1;
+        kernel[1]=0.2;
+        kernel[2]=-0.1;
+
+        kernel[3]=0.2;
+        kernel[4]=3;
+        kernel[5]=0.2;
+
+        kernel[6]=-0.1;
+        kernel[7]=0.2;
+        kernel[8]=-0.1;
+	}
+    // calculate new pixel value
 	for (int i = 0; i < 3; i++){
 		for (int j = 0; j < 3; j++){
-			new_pixel += kernel[i * 3 + j] * frame_up_left_pixel[i * 3 + j];
+			new_pixel += kernel[i * 3 + j] * (float)frame_up_left_pixel[offset + i * xWidth + j];
 		}
 	}
 	// change pixel value
-	frame_up_left_pixel[4] = new_pixel;
+	frame_up_left_pixel[xWidth + 1 + offset] = new_pixel;
 }
 
-void convolutionRow(const uint16_t& xWidth, uint8_t* frame){
-	for (int i = 0; i < xWidth; i+=3){
+void convolutionRow(const uint16_t xWidth, uint8_t* frame, uint16_t offset, bool flag_convolution){
+	for (int i = 0; i < xWidth; i++){
 		if (i < xWidth - 2){
-			convolution(frame + i);
+			convolution(frame, xWidth, offset + i, flag_convolution);
 		}
 	}
 }
 
-void convolutionImage(const uint16_t &xWidth, const uint16_t& yWidth, int32_t len, uint8_t* frame){
-	for (uint16_t i = 0; i < yWidth; i+=3){
+void convolutionImage(const uint16_t &xWidth, const uint16_t& yWidth, int32_t len, uint8_t* frame, bool flag_convolution){
+
+	//frame_clone[0] = 1;
+	//frame_clone[30000 - 1] = 2;
+	for (uint16_t i = 0; i < yWidth; i++){
 		if (i < yWidth - 2){
-			convolutionRow(xWidth, frame + len + i * xWidth);
+			convolutionRow(xWidth, frame + len,  i * xWidth, flag_convolution);
 		}
 	}
+//	memcpy(frame, frame_clone, 320);
 }

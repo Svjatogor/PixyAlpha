@@ -54,7 +54,7 @@ int32_t cam_setRegister(const uint8_t &reg, const uint8_t &value);
 int32_t cam_getRegister(const uint8_t &reg);
 
 void inverceImage(const uint16_t &xWidth, const uint16_t yWidth, int32_t len, uint8_t* frame);
-void convolutionImage(const uint16_t &xWidth, const uint16_t& yWidth, int32_t len, uint8_t* frame);
+void convolutionImage(const uint16_t &xWidth, const uint16_t& yWidth, int32_t len, uint8_t* frame, bool flag_convolution);
 
 void cam_loadParams();
 
