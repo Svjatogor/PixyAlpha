@@ -12483,3 +12483,504 @@ Written checksum 0x67ff7646 at offset 0x1c in file main_m4.bin
 Previous value 0x00000000 at offset 0x1c in file main_m4.bin
 copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
  
+00:57:34 **** Incremental Build of configuration Default for project build_this_first ****
+Info: Configuration "Default" uses tool-chain "cdt.managedbuild.toolchain.gnu.cygwin.base" that is unsupported on this system, attempting to build anyway.
+make all 
+cp ../common/src/*  ../libpixy_m0/src
+cp ../common/src/*  ../libpixy_m4/src
+cp ../../common/src/*  ../libpixy_m4/src
+00:57:37 **** Incremental Build of configuration Release for project libpixy_m0 ****
+make -r all 
+Building file: ../src/debug_frmwrk.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/debug_frmwrk.d" -MT"src/debug_frmwrk.o" -MT"src/debug_frmwrk.d" -o "src/debug_frmwrk.o" "../src/debug_frmwrk.c"
+Finished building: ../src/debug_frmwrk.c
+ 
+Building file: ../src/ipc_mbx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/ipc_mbx.d" -MT"src/ipc_mbx.o" -MT"src/ipc_mbx.d" -o "src/ipc_mbx.o" "../src/ipc_mbx.c"
+../src/ipc_mbx.c: In function 'IPC_resetMbxFlag':
+../src/ipc_mbx.c:55:4: warning: 'wasMasked' is used uninitialized in this function [-Wuninitialized]
+  if(!wasMasked)  __enable_irq();\
+    ^
+../src/ipc_mbx.c:58:27: note: 'wasMasked' was declared here
+  #define IRQ_LOCK_KEY int wasMasked;
+                           ^
+../src/ipc_mbx.c:82:3: note: in expansion of macro 'IRQ_LOCK_KEY'
+   IRQ_LOCK_KEY
+   ^
+../src/ipc_mbx.c: In function '_setMbxStatus':
+../src/ipc_mbx.c:55:4: warning: 'wasMasked' is used uninitialized in this function [-Wuninitialized]
+  if(!wasMasked)  __enable_irq();\
+    ^
+../src/ipc_mbx.c:58:27: note: 'wasMasked' was declared here
+  #define IRQ_LOCK_KEY int wasMasked;
+                           ^
+../src/ipc_mbx.c:104:2: note: in expansion of macro 'IRQ_LOCK_KEY'
+  IRQ_LOCK_KEY
+  ^
+Finished building: ../src/ipc_mbx.c
+ 
+Building file: ../src/lpc43xx_adc.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lpc43xx_adc.d" -MT"src/lpc43xx_adc.o" -MT"src/lpc43xx_adc.d" -o "src/lpc43xx_adc.o" "../src/lpc43xx_adc.c"
+Finished building: ../src/lpc43xx_adc.c
+ 
+Building file: ../src/lpc43xx_cgu.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lpc43xx_cgu.d" -MT"src/lpc43xx_cgu.o" -MT"src/lpc43xx_cgu.d" -o "src/lpc43xx_cgu.o" "../src/lpc43xx_cgu.c"
+Finished building: ../src/lpc43xx_cgu.c
+ 
+Building file: ../src/lpc43xx_i2c.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lpc43xx_i2c.d" -MT"src/lpc43xx_i2c.o" -MT"src/lpc43xx_i2c.d" -o "src/lpc43xx_i2c.o" "../src/lpc43xx_i2c.c"
+Finished building: ../src/lpc43xx_i2c.c
+ 
+Building file: ../src/lpc43xx_scu.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lpc43xx_scu.d" -MT"src/lpc43xx_scu.o" -MT"src/lpc43xx_scu.d" -o "src/lpc43xx_scu.o" "../src/lpc43xx_scu.c"
+Finished building: ../src/lpc43xx_scu.c
+ 
+Building file: ../src/lpc43xx_ssp.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lpc43xx_ssp.d" -MT"src/lpc43xx_ssp.o" -MT"src/lpc43xx_ssp.d" -o "src/lpc43xx_ssp.o" "../src/lpc43xx_ssp.c"
+Finished building: ../src/lpc43xx_ssp.c
+ 
+Building file: ../src/lpc43xx_uart.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lpc43xx_uart.d" -MT"src/lpc43xx_uart.o" -MT"src/lpc43xx_uart.d" -o "src/lpc43xx_uart.o" "../src/lpc43xx_uart.c"
+Finished building: ../src/lpc43xx_uart.c
+ 
+Building file: ../src/system_LPC43xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/system_LPC43xx.d" -MT"src/system_LPC43xx.o" -MT"src/system_LPC43xx.d" -o "src/system_LPC43xx.o" "../src/system_LPC43xx.c"
+Finished building: ../src/system_LPC43xx.c
+ 
+Building target: liblibpixy_m0.a
+Invoking: MCU Archiver
+arm-none-eabi-ar -r  "liblibpixy_m0.a"  ./src/chirp.o ./src/debug.o ./src/debug_frmwrk.o ./src/exec_m0.o ./src/frame_m0.o ./src/ipc_mbx.o ./src/lpc43xx_adc.o ./src/lpc43xx_cgu.o ./src/lpc43xx_i2c.o ./src/lpc43xx_scu.o ./src/lpc43xx_ssp.o ./src/lpc43xx_uart.o ./src/qqueue.o ./src/rls_m0.o ./src/smlink.o ./src/system_LPC43xx.o   
+Finished building target: liblibpixy_m0.a
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "liblibpixy_m0.a" ; # arm-none-eabi-objdump -h -S "liblibpixy_m0.a" >"liblibpixy_m0.lss"
+   text	   data	    bss	    dec	    hex	filename
+   4932	      0	     32	   4964	   1364	chirp.o (ex liblibpixy_m0.a)
+     40	      0	      0	     40	     28	debug.o (ex liblibpixy_m0.a)
+   1727	      0	      0	   1727	    6bf	debug_frmwrk.o (ex liblibpixy_m0.a)
+    288	      9	      2	    299	    12b	exec_m0.o (ex liblibpixy_m0.a)
+   1677	      0	      0	   1677	    68d	frame_m0.o (ex liblibpixy_m0.a)
+   1776	      0	      0	   1776	    6f0	ipc_mbx.o (ex liblibpixy_m0.a)
+    804	      0	      0	    804	    324	lpc43xx_adc.o (ex liblibpixy_m0.a)
+   4877	     68	      0	   4945	   1351	lpc43xx_cgu.o (ex liblibpixy_m0.a)
+   4028	      0	     52	   4080	    ff0	lpc43xx_i2c.o (ex liblibpixy_m0.a)
+     92	      0	      0	     92	     5c	lpc43xx_scu.o (ex liblibpixy_m0.a)
+   1736	      0	      0	   1736	    6c8	lpc43xx_ssp.o (ex liblibpixy_m0.a)
+   2616	      0	      0	   2616	    a38	lpc43xx_uart.o (ex liblibpixy_m0.a)
+    168	      4	      0	    172	     ac	qqueue.o (ex liblibpixy_m0.a)
+    828	      0	      4	    832	    340	rls_m0.o (ex liblibpixy_m0.a)
+    244	      0	      0	    244	     f4	smlink.o (ex liblibpixy_m0.a)
+     12	      0	      0	     12	      c	system_LPC43xx.o (ex liblibpixy_m0.a)
+ 
+00:57:41 **** Incremental Build of configuration Release for project libpixy_m4 ****
+make -r all 
+make: Nothing to be done for `all'.
+00:57:42 **** Incremental Build of configuration Release for project main_m0 ****
+make -r all 
+Building target: main_m0.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\Release" -Xlinker -Map="main_m0.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "main_m0_Release.ld" -o "main_m0.axf"  ./src/cr_startup_lpc43xx-m0app.o ./src/main_m0.o   -llibpixy_m0 && arm-none-eabi-objcopy --target elf32-littlearm --verbose --strip-all --remove-section=.ARM.attributes --redefine-sym __vectors_start__=__vectors_start___core_m0app --keep-symbol __vectors_start___core_m0app --redefine-sym _data=__start_data_core_m0app --keep-symbol __start_data_core_m0app --redefine-sym _edata=__end_data_core_m0app --keep-symbol __end_data_core_m0app --remove-section=".bss*" --remove-section=".noinit*" --rename-section .ARM.exidx=".core_m0app.ARM.exidx" --rename-section .ARM.extab=".core_m0app.ARM.extab" --rename-section .text=".core_m0app" --rename-section .data=".core_m0app.data" --rename-section .data_RAM2=".core_m0app.data_RAM2" --rename-section .data_RAM3=".core_m0app.data_RAM3" --rename-section .data_RAM4=".core_m0app.data_RAM4" --rename-section .data_RAM5=".core_m0app.data_RAM5" "main_m0.axf" "main_m0.axf.o"
+copy from `main_m0.axf' [elf32-littlearm] to `main_m0.axf.o' [elf32-littlearm]
+Finished building target: main_m0.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "main_m0.axf"; # arm-none-eabi-objcopy -v -O binary "main_m0.axf" "main_m0.bin" ; # checksum -p LPC4330_M0 -d "main_m0.bin";
+   text	   data	    bss	    dec	    hex	filename
+   8640	     16	     48	   8704	   2200	main_m0.axf
+ 
+00:57:43 **** Incremental Build of configuration SPIFI for project main_m4 ****
+make -r all 
+Building file: ../src/button.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/button.d" -MT"src/button.o" -MT"src/button.d" -o "src/button.o" "../src/button.cpp"
+../src/button.cpp: In function 'void scaleLED(uint32_t, uint32_t, uint32_t, uint32_t)':
+../src/button.cpp:42:35: warning: unused variable 't' [-Wunused-variable]
+  uint32_t max, min, current, sat, t; 
+                                   ^
+Finished building: ../src/button.cpp
+ 
+Building file: ../src/conncomp.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/conncomp.d" -MT"src/conncomp.o" -MT"src/conncomp.d" -o "src/conncomp.o" "../src/conncomp.cpp"
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+Finished building: ../src/conncomp.cpp
+ 
+Building file: ../src/exec.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/exec.d" -MT"src/exec.o" -MT"src/exec.d" -o "src/exec.o" "../src/exec.cpp"
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+Finished building: ../src/exec.cpp
+ 
+Building file: ../src/main_m4.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/main_m4.d" -MT"src/main_m4.o" -MT"src/main_m4.d" -o "src/main_m4.o" "../src/main_m4.cpp"
+../src/main_m4.cpp: In function 'int main()':
+../src/main_m4.cpp:57:11: warning: unused variable 'major' [-Wunused-variable]
+  uint16_t major, minor, build;
+           ^
+../src/main_m4.cpp:57:18: warning: unused variable 'minor' [-Wunused-variable]
+  uint16_t major, minor, build;
+                  ^
+../src/main_m4.cpp:57:25: warning: unused variable 'build' [-Wunused-variable]
+  uint16_t major, minor, build;
+                         ^
+../src/main_m4.cpp:58:6: warning: unused variable 'i' [-Wunused-variable]
+  int i, res, count;
+      ^
+../src/main_m4.cpp:58:9: warning: unused variable 'res' [-Wunused-variable]
+  int i, res, count;
+         ^
+../src/main_m4.cpp:58:14: warning: unused variable 'count' [-Wunused-variable]
+  int i, res, count;
+              ^
+Finished building: ../src/main_m4.cpp
+ 
+Building file: ../src/progchase.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progchase.d" -MT"src/progchase.o" -MT"src/progchase.d" -o "src/progchase.o" "../src/progchase.cpp"
+../src/progchase.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/progchase.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/progchase.cpp: In member function 'int32_t MotorLoop::update(int32_t)':
+../src/progchase.cpp:55:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  if (m_prevError!=0x80000000)
+                 ^
+../src/progchase.cpp:66:9: warning: 'vel' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  return vel;
+         ^
+Finished building: ../src/progchase.cpp
+ 
+Building file: ../src/progpt.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progpt.d" -MT"src/progpt.o" -MT"src/progpt.d" -o "src/progpt.o" "../src/progpt.cpp"
+../src/progpt.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/progpt.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/progpt.cpp: In member function 'void ServoLoop::update(int32_t)':
+../src/progpt.cpp:55:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  if (m_prevError!=0x80000000)
+                 ^
+Finished building: ../src/progpt.cpp
+ 
+Building file: ../src/progvideo.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progvideo.d" -MT"src/progvideo.o" -MT"src/progvideo.d" -o "src/progvideo.o" "../src/progvideo.cpp"
+../src/progvideo.cpp:33:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/progvideo.cpp:33:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/progvideo.cpp: In function 'void sendCustom(uint8_t)':
+../src/progvideo.cpp:49:42: error: 'type' was not declared in this scope
+  cam_getFrame(frame+len, SRAM1_SIZE-len, type, xOffset, yOffset, xWidth, yWidth);
+                                          ^
+../src/progvideo.cpp:49:48: error: 'xOffset' was not declared in this scope
+  cam_getFrame(frame+len, SRAM1_SIZE-len, type, xOffset, yOffset, xWidth, yWidth);
+                                                ^
+../src/progvideo.cpp:49:57: error: 'yOffset' was not declared in this scope
+  cam_getFrame(frame+len, SRAM1_SIZE-len, type, xOffset, yOffset, xWidth, yWidth);
+                                                         ^
+../src/progvideo.cpp:49:66: error: 'xWidth' was not declared in this scope
+  cam_getFrame(frame+len, SRAM1_SIZE-len, type, xOffset, yOffset, xWidth, yWidth);
+                                                                  ^
+../src/progvideo.cpp:49:74: error: 'yWidth' was not declared in this scope
+  cam_getFrame(frame+len, SRAM1_SIZE-len, type, xOffset, yOffset, xWidth, yWidth);
+                                                                          ^
+../src/progvideo.cpp:44:11: warning: unused variable 'fcc' [-Wunused-variable]
+  uint32_t fcc;
+           ^
+make: *** [src/progvideo.o] Error 1
+00:58:33 **** Incremental Build of configuration Default for project build_this_first ****
+Info: Configuration "Default" uses tool-chain "cdt.managedbuild.toolchain.gnu.cygwin.base" that is unsupported on this system, attempting to build anyway.
+make all 
+cp ../common/src/*  ../libpixy_m0/src
+cp ../common/src/*  ../libpixy_m4/src
+cp ../../common/src/*  ../libpixy_m4/src
+00:58:36 **** Incremental Build of configuration Release for project libpixy_m0 ****
+make -r all 
+Building file: ../src/debug_frmwrk.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/debug_frmwrk.d" -MT"src/debug_frmwrk.o" -MT"src/debug_frmwrk.d" -o "src/debug_frmwrk.o" "../src/debug_frmwrk.c"
+Finished building: ../src/debug_frmwrk.c
+ 
+Building file: ../src/ipc_mbx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/ipc_mbx.d" -MT"src/ipc_mbx.o" -MT"src/ipc_mbx.d" -o "src/ipc_mbx.o" "../src/ipc_mbx.c"
+../src/ipc_mbx.c: In function 'IPC_resetMbxFlag':
+../src/ipc_mbx.c:55:4: warning: 'wasMasked' is used uninitialized in this function [-Wuninitialized]
+  if(!wasMasked)  __enable_irq();\
+    ^
+../src/ipc_mbx.c:58:27: note: 'wasMasked' was declared here
+  #define IRQ_LOCK_KEY int wasMasked;
+                           ^
+../src/ipc_mbx.c:82:3: note: in expansion of macro 'IRQ_LOCK_KEY'
+   IRQ_LOCK_KEY
+   ^
+../src/ipc_mbx.c: In function '_setMbxStatus':
+../src/ipc_mbx.c:55:4: warning: 'wasMasked' is used uninitialized in this function [-Wuninitialized]
+  if(!wasMasked)  __enable_irq();\
+    ^
+../src/ipc_mbx.c:58:27: note: 'wasMasked' was declared here
+  #define IRQ_LOCK_KEY int wasMasked;
+                           ^
+../src/ipc_mbx.c:104:2: note: in expansion of macro 'IRQ_LOCK_KEY'
+  IRQ_LOCK_KEY
+  ^
+Finished building: ../src/ipc_mbx.c
+ 
+Building file: ../src/lpc43xx_adc.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lpc43xx_adc.d" -MT"src/lpc43xx_adc.o" -MT"src/lpc43xx_adc.d" -o "src/lpc43xx_adc.o" "../src/lpc43xx_adc.c"
+Finished building: ../src/lpc43xx_adc.c
+ 
+Building file: ../src/lpc43xx_cgu.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lpc43xx_cgu.d" -MT"src/lpc43xx_cgu.o" -MT"src/lpc43xx_cgu.d" -o "src/lpc43xx_cgu.o" "../src/lpc43xx_cgu.c"
+Finished building: ../src/lpc43xx_cgu.c
+ 
+Building file: ../src/lpc43xx_i2c.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lpc43xx_i2c.d" -MT"src/lpc43xx_i2c.o" -MT"src/lpc43xx_i2c.d" -o "src/lpc43xx_i2c.o" "../src/lpc43xx_i2c.c"
+Finished building: ../src/lpc43xx_i2c.c
+ 
+Building file: ../src/lpc43xx_scu.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lpc43xx_scu.d" -MT"src/lpc43xx_scu.o" -MT"src/lpc43xx_scu.d" -o "src/lpc43xx_scu.o" "../src/lpc43xx_scu.c"
+Finished building: ../src/lpc43xx_scu.c
+ 
+Building file: ../src/lpc43xx_ssp.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lpc43xx_ssp.d" -MT"src/lpc43xx_ssp.o" -MT"src/lpc43xx_ssp.d" -o "src/lpc43xx_ssp.o" "../src/lpc43xx_ssp.c"
+Finished building: ../src/lpc43xx_ssp.c
+ 
+Building file: ../src/lpc43xx_uart.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/lpc43xx_uart.d" -MT"src/lpc43xx_uart.o" -MT"src/lpc43xx_uart.d" -o "src/lpc43xx_uart.o" "../src/lpc43xx_uart.c"
+Finished building: ../src/lpc43xx_uart.c
+ 
+Building file: ../src/system_LPC43xx.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DIPC_SLAVE -DPIXY -D__REDLIB__ -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M0 -DCR_PRINTF_CHAR -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m0\inc" -I../../common/inc -I../../../common/inc -O0 -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m0 -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"src/system_LPC43xx.d" -MT"src/system_LPC43xx.o" -MT"src/system_LPC43xx.d" -o "src/system_LPC43xx.o" "../src/system_LPC43xx.c"
+Finished building: ../src/system_LPC43xx.c
+ 
+Building target: liblibpixy_m0.a
+Invoking: MCU Archiver
+arm-none-eabi-ar -r  "liblibpixy_m0.a"  ./src/chirp.o ./src/debug.o ./src/debug_frmwrk.o ./src/exec_m0.o ./src/frame_m0.o ./src/ipc_mbx.o ./src/lpc43xx_adc.o ./src/lpc43xx_cgu.o ./src/lpc43xx_i2c.o ./src/lpc43xx_scu.o ./src/lpc43xx_ssp.o ./src/lpc43xx_uart.o ./src/qqueue.o ./src/rls_m0.o ./src/smlink.o ./src/system_LPC43xx.o   
+Finished building target: liblibpixy_m0.a
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "liblibpixy_m0.a" ; # arm-none-eabi-objdump -h -S "liblibpixy_m0.a" >"liblibpixy_m0.lss"
+   text	   data	    bss	    dec	    hex	filename
+   4932	      0	     32	   4964	   1364	chirp.o (ex liblibpixy_m0.a)
+     40	      0	      0	     40	     28	debug.o (ex liblibpixy_m0.a)
+   1727	      0	      0	   1727	    6bf	debug_frmwrk.o (ex liblibpixy_m0.a)
+    288	      9	      2	    299	    12b	exec_m0.o (ex liblibpixy_m0.a)
+   1677	      0	      0	   1677	    68d	frame_m0.o (ex liblibpixy_m0.a)
+   1776	      0	      0	   1776	    6f0	ipc_mbx.o (ex liblibpixy_m0.a)
+    804	      0	      0	    804	    324	lpc43xx_adc.o (ex liblibpixy_m0.a)
+   4877	     68	      0	   4945	   1351	lpc43xx_cgu.o (ex liblibpixy_m0.a)
+   4028	      0	     52	   4080	    ff0	lpc43xx_i2c.o (ex liblibpixy_m0.a)
+     92	      0	      0	     92	     5c	lpc43xx_scu.o (ex liblibpixy_m0.a)
+   1736	      0	      0	   1736	    6c8	lpc43xx_ssp.o (ex liblibpixy_m0.a)
+   2616	      0	      0	   2616	    a38	lpc43xx_uart.o (ex liblibpixy_m0.a)
+    168	      4	      0	    172	     ac	qqueue.o (ex liblibpixy_m0.a)
+    828	      0	      4	    832	    340	rls_m0.o (ex liblibpixy_m0.a)
+    244	      0	      0	    244	     f4	smlink.o (ex liblibpixy_m0.a)
+     12	      0	      0	     12	      c	system_LPC43xx.o (ex liblibpixy_m0.a)
+ 
+00:58:39 **** Incremental Build of configuration Release for project libpixy_m4 ****
+make -r all 
+make: Nothing to be done for `all'.
+00:58:40 **** Incremental Build of configuration Release for project main_m0 ****
+make -r all 
+make: Nothing to be done for `all'.
+00:58:41 **** Incremental Build of configuration SPIFI for project main_m4 ****
+make -r all 
+Building file: ../src/button.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/button.d" -MT"src/button.o" -MT"src/button.d" -o "src/button.o" "../src/button.cpp"
+../src/button.cpp: In function 'void scaleLED(uint32_t, uint32_t, uint32_t, uint32_t)':
+../src/button.cpp:42:35: warning: unused variable 't' [-Wunused-variable]
+  uint32_t max, min, current, sat, t; 
+                                   ^
+Finished building: ../src/button.cpp
+ 
+Building file: ../src/conncomp.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/conncomp.d" -MT"src/conncomp.o" -MT"src/conncomp.d" -o "src/conncomp.o" "../src/conncomp.cpp"
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+Finished building: ../src/conncomp.cpp
+ 
+Building file: ../src/exec.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/exec.d" -MT"src/exec.o" -MT"src/exec.d" -o "src/exec.o" "../src/exec.cpp"
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+Finished building: ../src/exec.cpp
+ 
+Building file: ../src/main_m4.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/main_m4.d" -MT"src/main_m4.o" -MT"src/main_m4.d" -o "src/main_m4.o" "../src/main_m4.cpp"
+../src/main_m4.cpp: In function 'int main()':
+../src/main_m4.cpp:57:11: warning: unused variable 'major' [-Wunused-variable]
+  uint16_t major, minor, build;
+           ^
+../src/main_m4.cpp:57:18: warning: unused variable 'minor' [-Wunused-variable]
+  uint16_t major, minor, build;
+                  ^
+../src/main_m4.cpp:57:25: warning: unused variable 'build' [-Wunused-variable]
+  uint16_t major, minor, build;
+                         ^
+../src/main_m4.cpp:58:6: warning: unused variable 'i' [-Wunused-variable]
+  int i, res, count;
+      ^
+../src/main_m4.cpp:58:9: warning: unused variable 'res' [-Wunused-variable]
+  int i, res, count;
+         ^
+../src/main_m4.cpp:58:14: warning: unused variable 'count' [-Wunused-variable]
+  int i, res, count;
+              ^
+Finished building: ../src/main_m4.cpp
+ 
+Building file: ../src/progchase.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progchase.d" -MT"src/progchase.o" -MT"src/progchase.d" -o "src/progchase.o" "../src/progchase.cpp"
+../src/progchase.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/progchase.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/progchase.cpp: In member function 'int32_t MotorLoop::update(int32_t)':
+../src/progchase.cpp:55:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  if (m_prevError!=0x80000000)
+                 ^
+../src/progchase.cpp:66:9: warning: 'vel' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  return vel;
+         ^
+Finished building: ../src/progchase.cpp
+ 
+Building file: ../src/progpt.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progpt.d" -MT"src/progpt.o" -MT"src/progpt.d" -o "src/progpt.o" "../src/progpt.cpp"
+../src/progpt.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/progpt.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/progpt.cpp: In member function 'void ServoLoop::update(int32_t)':
+../src/progpt.cpp:55:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  if (m_prevError!=0x80000000)
+                 ^
+Finished building: ../src/progpt.cpp
+ 
+Building file: ../src/progvideo.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progvideo.d" -MT"src/progvideo.o" -MT"src/progvideo.d" -o "src/progvideo.o" "../src/progvideo.cpp"
+../src/progvideo.cpp:33:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/progvideo.cpp:33:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/progvideo.cpp: In function 'void sendCustom(uint8_t)':
+../src/progvideo.cpp:44:11: warning: unused variable 'fcc' [-Wunused-variable]
+  uint32_t fcc;
+           ^
+Finished building: ../src/progvideo.cpp
+ 
+Building target: main_m4.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src" -L"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\Release" -Xlinker -Map="main_m4.map" -Xlinker --gc-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -T "SPIFI_link_template.ld" -L ../linkscripts -o "main_m4.axf"  ./src/analogdig.o ./src/button.o ./src/conncomp.o ./src/cr_cpp_config.o ./src/cr_start_m0.o ./src/cr_startup_lpc43xx.o ./src/exec.o ./src/i2c.o ./src/main_m4.o ./src/progblobs.o ./src/progchase.o ./src/progpt.o ./src/progvideo.o ./src/serial.o ./src/spi.o ./src/uart.o  C:/Users/tmelniko/Documents/GitHub/PixyFirmware/PixyFirmware/src/device/main_m0/Release/main_m0.axf.o -llibpixy_m4 -lfalcon_m4_spifi_drv
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(spifi_rom_api.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(falcon_details.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(amic.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(atmel.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(chi.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(eon.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(esmt.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(giga.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(macronix.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(numonyx.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(spansion.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(sst.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+c:/nxp/lpcxpresso_8.1.4_606/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/5.2.1/../../../../arm-none-eabi/bin/ld.exe: warning: C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src\libfalcon_m4_spifi_drv.a(winbond.o) uses 2-byte wchar_t yet the output is to use 4-byte wchar_t; use of wchar_t values across objects may fail
+Finished building target: main_m4.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "main_m4.axf" ; arm-none-eabi-objcopy -v -O binary "main_m4.axf" "main_m4.bin" ; checksum -p LPC4330 -d "main_m4.bin" ; arm-none-eabi-objcopy -v -O ihex "main_m4.axf" pixy_firmware.hex
+   text	   data	    bss	    dec	    hex	filename
+ 104968	   2316	   2884	 110168	  1ae58	main_m4.axf
+copy from `main_m4.axf' [elf32-littlearm] to `main_m4.bin' [binary]
+Written checksum 0x67ff7646 at offset 0x1c in file main_m4.bin
+Previous value 0x00000000 at offset 0x1c in file main_m4.bin
+copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
+ 
