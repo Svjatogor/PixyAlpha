@@ -20,6 +20,7 @@
 #include <QStringList>
 #include <QList>
 #include <inttypes.h>
+#include <QVariant>
 
 #define MAX_MONMODULES 0x40 // this should be way more than neeeded....
 

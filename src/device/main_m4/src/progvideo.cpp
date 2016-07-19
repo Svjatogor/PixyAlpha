@@ -83,4 +83,3 @@ int videoLoop()
 		sendCustom();
 	return 0;
 }
-

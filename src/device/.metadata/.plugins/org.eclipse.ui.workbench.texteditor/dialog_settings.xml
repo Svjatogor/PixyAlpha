@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="CRP_SEND_XDATA"/>
 			<item value="Signature Set"/>
 			<item value="Signatur"/>
 			<item value="Signature set!"/>
@@ -15,7 +16,6 @@
 			<item value="Signature set"/>
 			<item value="Signat"/>
 			<item value="response:"/>
-			<item value="Error: Program &quot;make&quot; not found in PATH"/>
 		</list>
 		<list key="replacehistory">
 		</list>

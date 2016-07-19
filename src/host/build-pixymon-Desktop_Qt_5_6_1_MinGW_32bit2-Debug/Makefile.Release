@@ -720,7 +720,7 @@ release/moc_interpreter.cpp: C:/Qt/5.6/mingw49_32/include/QtCore/QThread \
 		C:/Qt/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.6/mingw49_32/include/QtGui/QImage \
 		../pixymon/connectevent.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/mainwindow.h \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/qmainwindow.h \
@@ -880,7 +880,7 @@ release/moc_connectevent.cpp: C:/Qt/5.6/mingw49_32/include/QtCore/QThread \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qobject_impl.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/QMutex \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/mainwindow.h \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/qmainwindow.h \
@@ -1520,7 +1520,7 @@ release/mainwindow.o: ../pixymon/mainwindow.cpp ../pixymon/debug.h \
 		../../common/inc/chirp.hpp \
 		../../common/inc/link.h \
 		../pixymon/connectevent.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/disconnectevent.h \
 		../pixymon/usblink.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/QTime \
@@ -1792,7 +1792,7 @@ release/usblink.o: ../pixymon/usblink.cpp ../pixymon/debug.h \
 		../../common/inc/link.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/QTime \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qdatetime.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/sleeper.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/QThread \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qthread.h \
@@ -2070,7 +2070,7 @@ release/interpreter.o: ../pixymon/interpreter.cpp C:/Qt/5.6/mingw49_32/include/Q
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/QWidget \
 		C:/Qt/5.6/mingw49_32/include/QtGui/QImage \
 		../pixymon/connectevent.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/mainwindow.h \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/qmainwindow.h \
@@ -2240,7 +2240,7 @@ release/renderer.o: ../pixymon/renderer.cpp C:/Qt/5.6/mingw49_32/include/QtGui/Q
 		../../common/inc/chirp.hpp \
 		../../common/inc/link.h \
 		../pixymon/connectevent.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/mainwindow.h \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/qmainwindow.h \
@@ -2382,7 +2382,7 @@ release/chirpmon.o: ../pixymon/chirpmon.cpp C:/Qt/5.6/mingw49_32/include/QtCore/
 		C:/Qt/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.6/mingw49_32/include/QtGui/QImage \
 		../pixymon/connectevent.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/mainwindow.h \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/qmainwindow.h \
@@ -2457,7 +2457,7 @@ release/dfu.o: ../pixymon/dfu.cpp C:/Qt/5.6/mingw49_32/include/QtCore/QThread \
 		../pixymon/dfu.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/QString \
 		../pixymon/dfu_info.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/usb_dfu.h \
 		../../common/inc/pixydefs.h \
 		../pixymon/sleeper.h
@@ -2521,7 +2521,7 @@ release/connectevent.o: ../pixymon/connectevent.cpp ../pixymon/connectevent.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qobject_impl.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/QMutex \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/mainwindow.h \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/qmainwindow.h \
@@ -2652,7 +2652,7 @@ release/flash.o: ../pixymon/flash.cpp C:/Qt/5.6/mingw49_32/include/QtCore/QFile 
 		C:/Qt/5.6/mingw49_32/include/QtCore/qdatetime.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qshareddata.h \
 		C:/Qt/5.6/mingw49_32/include/QtCore/qhash.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../../common/inc/chirp.hpp \
 		../pixymon/reader.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/flash.o ../pixymon/flash.cpp
@@ -3085,7 +3085,7 @@ release/configdialog.o: ../pixymon/configdialog.cpp ../pixymon/interpreter.h \
 		C:/Qt/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.6/mingw49_32/include/QtGui/QImage \
 		../pixymon/connectevent.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/mainwindow.h \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/qmainwindow.h \
@@ -3635,7 +3635,7 @@ release/monmodule.o: ../pixymon/monmodule.cpp C:/Qt/5.6/mingw49_32/include/QtCor
 		C:/Qt/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.6/mingw49_32/include/QtGui/QImage \
 		../pixymon/connectevent.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/mainwindow.h \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/qmainwindow.h \
@@ -3770,7 +3770,7 @@ release/cblobmodule.o: ../pixymon/cblobmodule.cpp C:/Qt/5.6/mingw49_32/include/Q
 		C:/Qt/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.6/mingw49_32/include/QtGui/QImage \
 		../pixymon/connectevent.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/mainwindow.h \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/qmainwindow.h \
@@ -4095,7 +4095,7 @@ release/cccmodule.o: ../pixymon/cccmodule.cpp ../pixymon/cccmodule.h \
 		C:/Qt/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.6/mingw49_32/include/QtGui/QImage \
 		../pixymon/connectevent.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/mainwindow.h \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/qmainwindow.h \
@@ -4237,7 +4237,7 @@ release/debug.o: ../pixymon/debug.cpp ../pixymon/debug.h \
 		C:/Qt/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.6/mingw49_32/include/QtGui/QImage \
 		../pixymon/connectevent.h \
-		../windows/libusb.h \
+		../pixymon/libusb.h \
 		../pixymon/mainwindow.h \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.6/mingw49_32/include/QtWidgets/qmainwindow.h \

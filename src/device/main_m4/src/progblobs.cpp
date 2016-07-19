@@ -133,70 +133,82 @@ void handleRecv()
 
 int blobsLoop()
 {
-#if 1
-	BlobA *blobs;
-	BlobB *ccBlobs;
-	uint32_t numBlobs, numCCBlobs;
-	static uint32_t drop = 0;
+	int32_t result, len;
+	uint8_t *frame = (uint8_t *)SRAM1_LOC;
+	uint8_t renderFlags=RENDER_FLAG_FLUSH;
+	// fill buffer contents manually for return data
+	len = Chirp::serialize(g_chirpUsb, frame, SRAM1_SIZE, HTYPE(FOURCC('B','A','8','1')), HINT8(renderFlags), UINT16(CAM_RES2_WIDTH), UINT16(CAM_RES2_HEIGHT), UINTS8_NO_COPY(CAM_RES2_WIDTH*CAM_RES2_HEIGHT), END);
+	// write frame after chirp args
+	result = cam_getFrame(frame+len, SRAM1_SIZE-len, CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT);
 
-	// create blobs
-	if (g_blobs->blobify()<0)
-	{
-		DBG("drop %d\n", drop++);
-		return 0;
-	}
-	// handle received data immediately
-	handleRecv();
+	inverceImage(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, len, frame);
 
-	// send blobs
-	g_blobs->getBlobs(&blobs, &numBlobs, &ccBlobs, &numCCBlobs);
-	cprintf("blobsLoop");
-	cc_sendBlobs(g_chirpUsb, blobs, numBlobs, ccBlobs, numCCBlobs);
-
-	ser_getSerial()->update();
-
-	// if user isn't controlling LED, set it here, according to biggest detected object
-	if (!g_ledSet)
-		cc_setLED();
-	
-	// deal with any latent received data until the next frame comes in
-	while(!g_qqueue->queued())
-		handleRecv();
-
-#endif
-#if 0
-	Qval qval;
-	int j = 0;
-	static int i = 0;
-	while(1)
-	{
-		if (g_qqueue->dequeue(&qval))
-		{
-			j++;
-			if (qval.m_col>=0xfffe)
-			{
-				cprintf("%d: %d %x\n", i++, j, qval.m_col);
-				break;
-			}
-		}
-	}
-#endif
-#if 0
-	BlobA *blobs;
-	BlobB *ccBlobs;
-	uint32_t numBlobs, numCCBlobs;
-	static uint32_t drop = 0;
-
-	// create blobs
-	if (g_blobs->blobify()<0)
-	{
-		DBG("drop %d\n", drop++);
-		return 0;
-	}
-	g_blobs->getBlobs(&blobs, &numBlobs, &ccBlobs, &numCCBlobs);
-	cc_sendBlobs(g_chirpUsb, blobs, numBlobs, ccBlobs, numCCBlobs);
-
-#endif
+	// tell chirp to use this buffer
+	g_chirpUsb->useBuffer(frame, len+CAM_RES2_WIDTH*CAM_RES2_HEIGHT);
+//#if 1
+//	BlobA *blobs;
+//	BlobB *ccBlobs;
+//	uint32_t numBlobs, numCCBlobs;
+//	static uint32_t drop = 0;
+//
+//	// create blobs
+//	if (g_blobs->blobify()<0)
+//	{
+//		DBG("drop %d\n", drop++);
+//		return 0;
+//	}
+//	// handle received data immediately
+//	handleRecv();
+//
+//	// send blobs
+//	g_blobs->getBlobs(&blobs, &numBlobs, &ccBlobs, &numCCBlobs);
+//	cprintf("blobsLoop");
+//	cc_sendBlobs(g_chirpUsb, blobs, numBlobs, ccBlobs, numCCBlobs);
+//
+//	ser_getSerial()->update();
+//
+//	// if user isn't controlling LED, set it here, according to biggest detected object
+//	if (!g_ledSet)
+//		cc_setLED();
+//
+//	// deal with any latent received data until the next frame comes in
+//	while(!g_qqueue->queued())
+//		handleRecv();
+//
+//#endif
+//#if 0
+//	Qval qval;
+//	int j = 0;
+//	static int i = 0;
+//	while(1)
+//	{
+//		if (g_qqueue->dequeue(&qval))
+//		{
+//			j++;
+//			if (qval.m_col>=0xfffe)
+//			{
+//				cprintf("%d: %d %x\n", i++, j, qval.m_col);
+//				break;
+//			}
+//		}
+//	}
+//#endif
+//#if 0
+//	BlobA *blobs;
+//	BlobB *ccBlobs;
+//	uint32_t numBlobs, numCCBlobs;
+//	static uint32_t drop = 0;
+//
+//	// create blobs
+//	if (g_blobs->blobify()<0)
+//	{
+//		DBG("drop %d\n", drop++);
+//		return 0;
+//	}
+//	g_blobs->getBlobs(&blobs, &numBlobs, &ccBlobs, &numCCBlobs);
+//	cc_sendBlobs(g_chirpUsb, blobs, numBlobs, ccBlobs, numCCBlobs);
+//
+//#endif
 
 	return 0;
 }
