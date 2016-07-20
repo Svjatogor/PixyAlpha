@@ -745,3 +745,44 @@ void convolutionImage(const uint16_t &xWidth, const uint16_t& yWidth, int32_t le
 	}
 //	memcpy(frame, frame_clone, 320);
 }
+
+uint8_t calcY(const uint8_t r, const uint8_t g, const uint8_t b){
+	int result = 9798 * r + 9617 * g + 3736 * b;
+	cprintf("%d res", result);
+	result = result>>15;
+	cprintf("%d result>>15", result);
+	return result;
+}
+
+// inverce image
+void bayerToY(const uint16_t xWidth, const uint16_t yWidth, uint8_t* frame){
+	uint8_t y[50][80] = {{}};
+	uint8_t r, g, b;
+	const char space[2] = {' ', '\0'};
+	// rows
+	for (int i = 0; i < 4; i+=2){
+		// columns
+		for (int j = 0; j < 6; j += 2){
+			// extract rgb components
+			r = frame[i * xWidth + j + 1];
+			g = frame[i * xWidth + j] + frame[(i + 1) * xWidth + j + 1];
+			b = frame[(i + 1) * xWidth + j];
+			cprintf("r%d g%d b%d", r, g, b);
+			cprintf("i: %d, j: %d", i, j);
+			y[i - i/2][j - j/2] = calcY(r, g, b);
+			cprintf("Y -- i: %d, j: %d", i - i/2, j - j/2);
+		}
+	}
+	for (uint8_t i = 0; i < 2; i++){
+		char pixel_char[3] = "";
+		char row_pixels_char[10] = "";
+		for (uint8_t j = 0; j < 3; j++){
+			itoa(y[i][j], pixel_char, 10);
+			strcat(row_pixels_char, space);
+			strcat(row_pixels_char, pixel_char);
+		}
+		cprintf("%s\n", row_pixels_char);
+	}
+}
+
+

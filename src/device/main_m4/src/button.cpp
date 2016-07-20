@@ -151,8 +151,6 @@ bool ButtonMachine::handleSignature()
 	}
 	else if (m_goto!=0) // else grab frame and flush
 	{
-		char pixel_char[3];
-		char row_pixels_char[700];
 		const char space[2] = {' ', '\0'};
 		//cprintf("push m_goto!=0");
 		// fill buffer contents manually for return data
@@ -161,14 +159,17 @@ bool ButtonMachine::handleSignature()
 		cam_getFrame(frame+len, SRAM1_SIZE-len, CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT);
 		//cam_getFrameChirpFlags(CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT, g_chirpUsb);
 		cprintf("may be crash");
-		for (uint8_t i = 0; i < 2; i++){
-			for (uint8_t j = 0; j < 4; j++){
+		for (uint8_t i = 0; i < 4; i++){
+			char pixel_char[3] = "";
+			char row_pixels_char[10] = "";
+			for (uint8_t j = 0; j < 6; j++){
 				itoa(frame[len + i * CAM_RES2_WIDTH + j], pixel_char, 10);
 				strcat(row_pixels_char, space);
 				strcat(row_pixels_char, pixel_char);
 			}
 			cprintf("%s\n", row_pixels_char);
 		}
+		bayerToY(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, frame + len);
 
 	}
 
