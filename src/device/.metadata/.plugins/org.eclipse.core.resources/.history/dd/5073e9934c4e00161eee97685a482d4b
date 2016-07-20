@@ -134,22 +134,18 @@ void ButtonMachine::setSignature()
 
 bool ButtonMachine::handleSignature()
 {
-
+	cprintf("push");
 	uint32_t bt;
 
 	bt = button();
 
    	if (m_ledPipe) // if ledpipe, grab frame, but don't flush 
 	{
-   		cprintf("push");
 		cam_getFrameChirpFlags(CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT, g_chirpUsb, 0);
 		ledPipe();
 	}
 	else if (m_goto!=0) // else grab frame and flush
-	{
-		cprintf("push m_goto!=0");
 		cam_getFrameChirpFlags(CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT, g_chirpUsb);
-	}
 
 	switch(m_goto)
 	{

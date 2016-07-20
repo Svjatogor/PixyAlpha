@@ -86,12 +86,12 @@ void sendCustom(uint8_t renderFlags=RENDER_FLAG_FLUSH)
 int videoLoop()
 {
 	if (g_execArg==0){
-//		cprintf("g_execArg==0");
+		cprintf("g_execArg==0");
 		cam_getFrameChirp(CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT, g_chirpUsb);
 	}
 	else 
 	{
-	//	cprintf("loop else");
+		cprintf("loop else");
 		sendCustom();
 	}
 	return 0;

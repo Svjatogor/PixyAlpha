@@ -136,7 +136,7 @@ int blobsLoop()
 	int32_t result, len;
 	uint8_t *frame = (uint8_t *)SRAM1_LOC;
 	uint8_t renderFlags=RENDER_FLAG_FLUSH;
-	//cprintf("home");
+	cprintf("home");
 	// fill buffer contents manually for return data
 	len = Chirp::serialize(g_chirpUsb, frame, SRAM1_SIZE, HTYPE(FOURCC('B','A','8','1')), HINT8(renderFlags), UINT16(CAM_RES2_WIDTH), UINT16(CAM_RES2_HEIGHT), UINTS8_NO_COPY(CAM_RES2_WIDTH*CAM_RES2_HEIGHT), END);
 	// write frame after chirp args

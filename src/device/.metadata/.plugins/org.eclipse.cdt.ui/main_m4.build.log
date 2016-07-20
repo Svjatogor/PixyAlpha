@@ -1,4 +1,4 @@
-00:58:41 **** Incremental Build of configuration SPIFI for project main_m4 ****
+10:36:01 **** Incremental Build of configuration SPIFI for project main_m4 ****
 make -r all 
 Building file: ../src/button.cpp
 Invoking: MCU C++ Compiler
@@ -104,19 +104,6 @@ arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG
                  ^
 Finished building: ../src/progpt.cpp
  
-Building file: ../src/progvideo.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progvideo.d" -MT"src/progvideo.o" -MT"src/progvideo.d" -o "src/progvideo.o" "../src/progvideo.cpp"
-../src/progvideo.cpp:33:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
- };
- ^
-../src/progvideo.cpp:33:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/progvideo.cpp: In function 'void sendCustom(uint8_t)':
-../src/progvideo.cpp:44:11: warning: unused variable 'fcc' [-Wunused-variable]
-  uint32_t fcc;
-           ^
-Finished building: ../src/progvideo.cpp
- 
 Building target: main_m4.axf
 Invoking: MCU C++ Linker
 arm-none-eabi-c++ -nostdlib -L"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src" -L"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\Release" -Xlinker -Map="main_m4.map" -Xlinker --gc-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -T "SPIFI_link_template.ld" -L ../linkscripts -o "main_m4.axf"  ./src/analogdig.o ./src/button.o ./src/conncomp.o ./src/cr_cpp_config.o ./src/cr_start_m0.o ./src/cr_startup_lpc43xx.o ./src/exec.o ./src/i2c.o ./src/main_m4.o ./src/progblobs.o ./src/progchase.o ./src/progpt.o ./src/progvideo.o ./src/serial.o ./src/spi.o ./src/uart.o  C:/Users/tmelniko/Documents/GitHub/PixyFirmware/PixyFirmware/src/device/main_m0/Release/main_m0.axf.o -llibpixy_m4 -lfalcon_m4_spifi_drv
@@ -139,12 +126,12 @@ make --no-print-directory post-build
 Performing post-build steps
 arm-none-eabi-size "main_m4.axf" ; arm-none-eabi-objcopy -v -O binary "main_m4.axf" "main_m4.bin" ; checksum -p LPC4330 -d "main_m4.bin" ; arm-none-eabi-objcopy -v -O ihex "main_m4.axf" pixy_firmware.hex
    text	   data	    bss	    dec	    hex	filename
- 104968	   2316	   2884	 110168	  1ae58	main_m4.axf
+ 104960	   2316	   2884	 110160	  1ae50	main_m4.axf
 copy from `main_m4.axf' [elf32-littlearm] to `main_m4.bin' [binary]
 Written checksum 0x67ff7646 at offset 0x1c in file main_m4.bin
 Previous value 0x00000000 at offset 0x1c in file main_m4.bin
 copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
  
 
-00:58:45 Build Finished (took 4s.1ms)
+10:36:05 Build Finished (took 3s.985ms)
 
