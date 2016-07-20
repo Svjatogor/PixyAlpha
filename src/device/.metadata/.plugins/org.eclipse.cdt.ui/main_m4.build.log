@@ -1,12 +1,16 @@
-10:36:01 **** Incremental Build of configuration SPIFI for project main_m4 ****
+11:03:55 **** Incremental Build of configuration SPIFI for project main_m4 ****
 make -r all 
 Building file: ../src/button.cpp
 Invoking: MCU C++ Compiler
 arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/button.d" -MT"src/button.o" -MT"src/button.d" -o "src/button.o" "../src/button.cpp"
 ../src/button.cpp: In function 'void scaleLED(uint32_t, uint32_t, uint32_t, uint32_t)':
-../src/button.cpp:42:35: warning: unused variable 't' [-Wunused-variable]
+../src/button.cpp:43:35: warning: unused variable 't' [-Wunused-variable]
   uint32_t max, min, current, sat, t; 
                                    ^
+../src/button.cpp: In member function 'bool ButtonMachine::handleSignature()':
+../src/button.cpp:140:11: warning: unused variable 'fcc' [-Wunused-variable]
+  uint32_t fcc;
+           ^
 Finished building: ../src/button.cpp
  
 Building file: ../src/conncomp.cpp
@@ -126,12 +130,12 @@ make --no-print-directory post-build
 Performing post-build steps
 arm-none-eabi-size "main_m4.axf" ; arm-none-eabi-objcopy -v -O binary "main_m4.axf" "main_m4.bin" ; checksum -p LPC4330 -d "main_m4.bin" ; arm-none-eabi-objcopy -v -O ihex "main_m4.axf" pixy_firmware.hex
    text	   data	    bss	    dec	    hex	filename
- 104960	   2316	   2884	 110160	  1ae50	main_m4.axf
+ 105312	   2316	   2884	 110512	  1afb0	main_m4.axf
 copy from `main_m4.axf' [elf32-littlearm] to `main_m4.bin' [binary]
 Written checksum 0x67ff7646 at offset 0x1c in file main_m4.bin
 Previous value 0x00000000 at offset 0x1c in file main_m4.bin
 copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
  
 
-10:36:05 Build Finished (took 3s.985ms)
+11:03:59 Build Finished (took 3s.940ms)
 
