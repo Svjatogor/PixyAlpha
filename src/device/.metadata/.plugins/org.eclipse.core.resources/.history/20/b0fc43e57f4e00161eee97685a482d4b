@@ -746,11 +746,11 @@ void convolutionImage(const uint16_t &xWidth, const uint16_t& yWidth, int32_t le
 //	memcpy(frame, frame_clone, 320);
 }
 
-int calcY(const uint8_t r, const uint8_t g, const uint8_t b){
-	int result = 9798 * r + 9617 * g + 3736 * b;
-	//cprintf("%d res", result);
+uint8_t calcY(const uint8_t r, const uint8_t g, const uint8_t b){
+	uint8_t result = 9798 * r + 9617 * g + 3736 * b;
+	cprintf("%d res", result);
 	result = result>>15;
-	//cprintf("%d result>>15", result);
+	cprintf("%d result>>15", result);
 	return result;
 }
 
@@ -762,15 +762,15 @@ void bayerToY(const uint16_t xWidth, const uint16_t yWidth, uint8_t* frame){
 	// rows
 	for (int i = 0; i < 4; i+=2){
 		// columns
-		for (int j = 0; j < 4; j += 2){
+		for (int j = 0; j < 6; j += 2){
 			// extract rgb components
 			r = frame[i * xWidth + j + 1];
 			g = frame[i * xWidth + j] + frame[(i + 1) * xWidth + j + 1];
 			b = frame[(i + 1) * xWidth + j];
-			//cprintf("r%d g%d b%d", r, g, b);
-			//cprintf("i: %d, j: %d", i, j);
+			cprintf("r%d g%d b%d", r, g, b);
+			cprintf("i: %d, j: %d", i, j);
 			y[i - i/2][j - j/2] = calcY(r, g, b);
-			//cprintf("Y -- i: %d, j: %d", i - i/2, j - j/2);
+			cprintf("Y -- i: %d, j: %d", i - i/2, j - j/2);
 		}
 	}
 	for (uint8_t i = 0; i < 2; i++){

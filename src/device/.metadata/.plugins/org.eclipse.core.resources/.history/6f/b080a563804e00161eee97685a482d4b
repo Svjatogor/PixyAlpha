@@ -158,19 +158,18 @@ bool ButtonMachine::handleSignature()
 		// write frame after chirp args
 		cam_getFrame(frame+len, SRAM1_SIZE-len, CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT);
 		//cam_getFrameChirpFlags(CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT, g_chirpUsb);
-		//cprintf("may be crash");
-//		for (uint8_t i = 0; i < 4; i++){
-//			char pixel_char[3] = "";
-//			char row_pixels_char[10] = "";
-//			for (uint8_t j = 0; j < 6; j++){
-//				itoa(frame[len + i * CAM_RES2_WIDTH + j], pixel_char, 10);
-//				strcat(row_pixels_char, space);
-//				strcat(row_pixels_char, pixel_char);
-//			}
-//			//cprintf("%s\n", row_pixels_char);
-//		}
+		cprintf("may be crash");
+		for (uint8_t i = 0; i < 4; i++){
+			char pixel_char[3] = "";
+			char row_pixels_char[10] = "";
+			for (uint8_t j = 0; j < 6; j++){
+				itoa(frame[len + i * CAM_RES2_WIDTH + j], pixel_char, 10);
+				strcat(row_pixels_char, space);
+				strcat(row_pixels_char, pixel_char);
+			}
+			cprintf("%s\n", row_pixels_char);
+		}
 		bayerToY(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, frame + len);
-		g_chirpUsb->useBuffer(frame, len+CAM_RES2_WIDTH*CAM_RES2_HEIGHT);
 
 	}
 
