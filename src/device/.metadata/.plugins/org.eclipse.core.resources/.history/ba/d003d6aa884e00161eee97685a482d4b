@@ -759,7 +759,7 @@ void bayerToY(const uint16_t xWidth, const uint16_t yWidth, uint8_t* frame){
 	uint8_t y[50][80] = {{}};
 	uint8_t r, g, b;
 	const char space[2] = {' ', '\0'};
-	//cprintf("%dx%d", xWidth, yWidth);
+	cprintf("%dx%d", xWidth, yWidth);
 	// rows
 	for (int i = 0; i < yWidth; i+=2){
 		//cprintf("%dx%d", xWidth, yWidth);
