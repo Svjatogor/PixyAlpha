@@ -1,9 +1,9 @@
-14:31:43 **** Incremental Build of configuration Default for project build_this_first ****
+20:08:10 **** Incremental Build of configuration Default for project build_this_first ****
 Info: Configuration "Default" uses tool-chain "cdt.managedbuild.toolchain.gnu.cygwin.base" that is unsupported on this system, attempting to build anyway.
 make all 
 cp ../common/src/*  ../libpixy_m0/src
 cp ../common/src/*  ../libpixy_m4/src
 cp ../../common/src/*  ../libpixy_m4/src
 
-14:31:43 Build Finished (took 641ms)
+20:08:11 Build Finished (took 828ms)
 

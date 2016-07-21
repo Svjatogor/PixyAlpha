@@ -1,134 +1,68 @@
-14:31:47 **** Incremental Build of configuration Release for project libpixy_m4 ****
+20:08:15 **** Incremental Build of configuration Release for project libpixy_m4 ****
 make -r all 
-Building file: ../src/blob.cpp
+Building file: ../src/camera.cpp
 Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_NONE -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/blob.d" -MT"src/blob.o" -MT"src/blob.d" -o "src/blob.o" "../src/blob.cpp"
-Finished building: ../src/blob.cpp
- 
-Building file: ../src/blobs.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_NONE -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/blobs.d" -MT"src/blobs.o" -MT"src/blobs.d" -o "src/blobs.o" "../src/blobs.cpp"
-../src/blobs.cpp: In member function 'void Blobs::cleanup(BlobA**, int16_t*)':
-../src/blobs.cpp:826:9: warning: 'maxEqualArea' may be used uninitialized in this function [-Wmaybe-uninitialized]
-         if (lowerArea<=maxEqualArea && maxEqualArea<=upperArea)
-         ^
-../src/blobs.cpp: In member function 'int Blobs::runlengthAnalysis()':
-../src/blobs.cpp:187:32: warning: 'segmentEndCol' may be used uninitialized in this function [-Wmaybe-uninitialized]
-             res = handleSegment(segmentSig, row, segmentStartCol-1, segmentEndCol - segmentStartCol+1);
-                                ^
-../src/blobs.cpp:187:32: warning: 'segmentStartCol' may be used uninitialized in this function [-Wmaybe-uninitialized]
-../src/blobs.cpp:166:29: warning: 'prevStartCol' may be used uninitialized in this function [-Wmaybe-uninitialized]
-             merge = startCol-prevStartCol<=5 && prevSig==sig;
-                             ^
-../src/blobs.cpp:172:36: warning: 'prevSig' may be used uninitialized in this function [-Wmaybe-uninitialized]
-             else if (segmentSig!=0 && (segmentSig!=sig || !merge))
-                                    ^
-Finished building: ../src/blobs.cpp
- 
-Building file: ../src/calc.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_NONE -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/calc.d" -MT"src/calc.o" -MT"src/calc.d" -o "src/calc.o" "../src/calc.cpp"
-Finished building: ../src/calc.cpp
- 
-Building file: ../src/chirp.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_NONE -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/chirp.d" -MT"src/chirp.o" -MT"src/chirp.d" -o "src/chirp.o" "../src/chirp.cpp"
-../src/chirp.cpp: In member function 'int Chirp::recvFull(uint8_t*, ChirpProc*, bool)':
-../src/chirp.cpp:1274:16: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-         if (res<sizeof(uint32_t))
-                ^
-../src/chirp.cpp: In member function 'int Chirp::recvData()':
-../src/chirp.cpp:1342:9: warning: 'res' may be used uninitialized in this function [-Wmaybe-uninitialized]
-         if (res<(int)chunk+3)
-         ^
-Finished building: ../src/chirp.cpp
- 
-Building file: ../src/colorlut.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_NONE -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/colorlut.d" -MT"src/colorlut.o" -MT"src/colorlut.d" -o "src/colorlut.o" "../src/colorlut.cpp"
-In file included from ../../../common/inc/colorlut.h:19:0,
-                 from ../src/colorlut.cpp:22:
-../../../common/inc/simplevector.h: In member function 'int SimpleVector<Object>::push_back(const Object&) [with Object = Point16]':
-../../../common/inc/simplevector.h:36:9: warning: assuming signed overflow does not occur when assuming that (X + c) < X is always false [-Wstrict-overflow]
-         if(newCapacity < m_size)
-         ^
-Finished building: ../src/colorlut.cpp
- 
-Building file: ../src/debug_frmwrk.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DIPC_MASTER -DPIXY -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/debug_frmwrk.d" -MT"src/debug_frmwrk.o" -MT"src/debug_frmwrk.d" -o "src/debug_frmwrk.o" "../src/debug_frmwrk.c"
-Finished building: ../src/debug_frmwrk.c
- 
-Building file: ../src/ipc_mbx.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DIPC_MASTER -DPIXY -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/ipc_mbx.d" -MT"src/ipc_mbx.o" -MT"src/ipc_mbx.d" -o "src/ipc_mbx.o" "../src/ipc_mbx.c"
-Finished building: ../src/ipc_mbx.c
- 
-Building file: ../src/lpc43xx_adc.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DIPC_MASTER -DPIXY -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/lpc43xx_adc.d" -MT"src/lpc43xx_adc.o" -MT"src/lpc43xx_adc.d" -o "src/lpc43xx_adc.o" "../src/lpc43xx_adc.c"
-../src/lpc43xx_adc.c: In function 'ADC_Init':
-../src/lpc43xx_adc.c:109:15: warning: 'temp' may be used uninitialized in this function [-Wmaybe-uninitialized]
-  temp = ((temp*2 + ADCbitrate) / (ADCbitrate*2)) - 1;//get the round value by fomular: (2*A + B)/(2*B)
-               ^
-Finished building: ../src/lpc43xx_adc.c
- 
-Building file: ../src/lpc43xx_cgu.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DIPC_MASTER -DPIXY -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/lpc43xx_cgu.d" -MT"src/lpc43xx_cgu.o" -MT"src/lpc43xx_cgu.d" -o "src/lpc43xx_cgu.o" "../src/lpc43xx_cgu.c"
-Finished building: ../src/lpc43xx_cgu.c
- 
-Building file: ../src/lpc43xx_i2c.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DIPC_MASTER -DPIXY -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/lpc43xx_i2c.d" -MT"src/lpc43xx_i2c.o" -MT"src/lpc43xx_i2c.d" -o "src/lpc43xx_i2c.o" "../src/lpc43xx_i2c.c"
-Finished building: ../src/lpc43xx_i2c.c
- 
-Building file: ../src/lpc43xx_scu.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DIPC_MASTER -DPIXY -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/lpc43xx_scu.d" -MT"src/lpc43xx_scu.o" -MT"src/lpc43xx_scu.d" -o "src/lpc43xx_scu.o" "../src/lpc43xx_scu.c"
-Finished building: ../src/lpc43xx_scu.c
- 
-Building file: ../src/lpc43xx_ssp.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DIPC_MASTER -DPIXY -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/lpc43xx_ssp.d" -MT"src/lpc43xx_ssp.o" -MT"src/lpc43xx_ssp.d" -o "src/lpc43xx_ssp.o" "../src/lpc43xx_ssp.c"
-../src/lpc43xx_ssp.c: In function 'SSP_ReadWrite':
-../src/lpc43xx_ssp.c:390:14: warning: 'wdata16' may be used uninitialized in this function [-Wmaybe-uninitialized]
-       wdata16++;
-              ^
-../src/lpc43xx_ssp.c:416:14: warning: 'rdata16' may be used uninitialized in this function [-Wmaybe-uninitialized]
-       rdata16++;
-              ^
-../src/lpc43xx_ssp.c:386:13: warning: 'wdata8' may be used uninitialized in this function [-Wmaybe-uninitialized]
-       wdata8++;
-             ^
-../src/lpc43xx_ssp.c:413:13: warning: 'rdata8' may be used uninitialized in this function [-Wmaybe-uninitialized]
-       rdata8++;
-             ^
-Finished building: ../src/lpc43xx_ssp.c
- 
-Building file: ../src/lpc43xx_uart.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DIPC_MASTER -DPIXY -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/lpc43xx_uart.d" -MT"src/lpc43xx_uart.o" -MT"src/lpc43xx_uart.d" -o "src/lpc43xx_uart.o" "../src/lpc43xx_uart.c"
-Finished building: ../src/lpc43xx_uart.c
+arm-none-eabi-c++ -D__MULTICORE_NONE -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/camera.d" -MT"src/camera.o" -MT"src/camera.d" -o "src/camera.o" "../src/camera.cpp"
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+ };
+ ^
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+../src/camera.cpp: In function 'int32_t cam_getFrameChirpFlags(const uint8_t&, const uint16_t&, const uint16_t&, const uint16_t&, const uint16_t&, Chirp*, uint8_t)':
+../src/camera.cpp:552:10: warning: variable 'i_last' set but not used [-Wunused-but-set-variable]
+  uint8_t i_last, j_last;
+          ^
+../src/camera.cpp:552:18: warning: variable 'j_last' set but not used [-Wunused-but-set-variable]
+  uint8_t i_last, j_last;
+                  ^
+../src/camera.cpp: In function 'void cam_setRegs(const uint8_t*, int)':
+../src/camera.cpp:602:17: warning: unused variable 'q' [-Wunused-variable]
+    volatile int q = 0;
+                 ^
+Finished building: ../src/camera.cpp
  
 Building file: ../src/pixy_init.cpp
 Invoking: MCU C++ Compiler
 arm-none-eabi-c++ -D__MULTICORE_NONE -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pixy_init.d" -MT"src/pixy_init.o" -MT"src/pixy_init.d" -o "src/pixy_init.o" "../src/pixy_init.cpp"
 Finished building: ../src/pixy_init.cpp
  
-Building file: ../src/qqueue.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_NONE -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/qqueue.d" -MT"src/qqueue.o" -MT"src/qqueue.d" -o "src/qqueue.o" "../src/qqueue.cpp"
-Finished building: ../src/qqueue.cpp
- 
-Building file: ../src/system_LPC43xx.c
-Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__NEWLIB__ -DIPC_MASTER -DPIXY -D__MULTICORE_NONE -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/system_LPC43xx.d" -MT"src/system_LPC43xx.o" -MT"src/system_LPC43xx.d" -o "src/system_LPC43xx.o" "../src/system_LPC43xx.c"
-Finished building: ../src/system_LPC43xx.c
- 
 Building target: liblibpixy_m4.a
 Invoking: MCU Archiver
 arm-none-eabi-ar -r  "liblibpixy_m4.a"  ./src/blob.o ./src/blobs.o ./src/calc.o ./src/camera.o ./src/chirp.o ./src/colorlut.o ./src/debug_frmwrk.o ./src/flash.o ./src/fpu_init.o ./src/ipc_mbx.o ./src/led.o ./src/lpc43xx_adc.o ./src/lpc43xx_cgu.o ./src/lpc43xx_i2c.o ./src/lpc43xx_scu.o ./src/lpc43xx_ssp.o ./src/lpc43xx_timer.o ./src/lpc43xx_uart.o ./src/misc.o ./src/param.o ./src/pixy_init.o ./src/platform_config.o ./src/power.o ./src/qqueue.o ./src/rcservo.o ./src/sccb.o ./src/smlink.o ./src/system_LPC43xx.o ./src/usbcore.o ./src/usbdesc.o ./src/usbhw.o ./src/usblink.o ./src/usbuser.o   
+c:\nxp\LPCXpresso_8.1.4_606\lpcxpresso\tools\bin\arm-none-eabi-ar.exe: creating liblibpixy_m4.a
 Finished building target: liblibpixy_m4.a
  
 make --no-print-directory post-build
@@ -138,7 +72,7 @@ arm-none-eabi-size "liblibpixy_m4.a" ; # arm-none-eabi-objdump -h -S "liblibpixy
    1111	      0	      7	   1118	    45e	blob.o (ex liblibpixy_m4.a)
    4612	      0	      0	   4612	   1204	blobs.o (ex liblibpixy_m4.a)
     368	      0	      0	    368	    170	calc.o (ex liblibpixy_m4.a)
-   5559	     10	     21	   5590	   15d6	camera.o (ex liblibpixy_m4.a)
+   5503	     10	     21	   5534	   159e	camera.o (ex liblibpixy_m4.a)
    4528	      0	      0	   4528	   11b0	chirp.o (ex liblibpixy_m4.a)
    2874	      0	      0	   2874	    b3a	colorlut.o (ex liblibpixy_m4.a)
     800	      0	      0	    800	    320	debug_frmwrk.o (ex liblibpixy_m4.a)
@@ -170,5 +104,5 @@ arm-none-eabi-size "liblibpixy_m4.a" ; # arm-none-eabi-objdump -h -S "liblibpixy
     523	      0	     38	    561	    231	usbuser.o (ex liblibpixy_m4.a)
  
 
-14:31:54 Build Finished (took 7s.84ms)
+20:08:16 Build Finished (took 1s.797ms)
 

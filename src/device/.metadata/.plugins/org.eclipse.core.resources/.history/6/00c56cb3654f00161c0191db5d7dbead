@@ -547,7 +547,27 @@ int32_t cam_getFrameChirpFlags(const uint8_t &type, const uint16_t &xOffset, con
 	len = Chirp::serialize(chirp, frame, SRAM1_SIZE, HTYPE(FOURCC('B','A','8','1')), HINT8(renderFlags), UINT16(xWidth), UINT16(yWidth), UINTS8_NO_COPY(xWidth*yWidth), END);
 	// write frame after chirp args
 	result = cam_getFrame(frame+len, SRAM1_SIZE-len, type, xOffset, yOffset, xWidth, yWidth);
-	// bayer
+	// debug information
+	// print raw frame second and penultimate
+//	for (int i = 0; i < xWidth; i++){
+//		cprintf("%d ", frame[len + 2 * xWidth + i]);
+//	}
+//	cprintf("\n");
+//	for (int i = 0; i < xWidth; i++){
+//		cprintf("%d ", frame[len + (yWidth - 2) * xWidth + i]);
+//	}
+	//inverceImage(xWidth, yWidth, len, frame);
+	//convolutionImage(xWidth, yWidth, len, frame);
+	
+//	for (int i = 0; i < xWidth; i++){
+//		cprintf("%d ", frame[len + 2 * xWidth + i]);
+//	}
+//	cprintf("\n");
+//	for (int i = 0; i < xWidth; i++){
+//		cprintf("%d ", frame[len + (yWidth - 2) * xWidth + i]);
+//	}
+
+	// bayer blyat
 	uint8_t r, g, b;
 	uint8_t i_last, j_last;
 	//cprintf("%dx%d", xWidth, yWidth);
@@ -567,9 +587,8 @@ int32_t cam_getFrameChirpFlags(const uint8_t &type, const uint16_t &xOffset, con
 		}
 		i_last = i - i/2;
 	}
-	cprintf("%d", xWidth);
-//	cprintf("Y[%d][%d] = %d", 0, 0, frame[0]);
-//	cprintf("Y[%d][%d] = %d", i_last, j_last, frame[i_last * 180 + j_last]);
+	cprintf("Y[%d][%d] = %d", 0, 0, frame[0]);
+	cprintf("Y[%d][%d] = %d", i_last, j_last, frame[i_last * 180 + j_last]);
 
 	// tell chirp to use this buffer
 	chirp->useBuffer(frame, len+xWidth*yWidth);
