@@ -1,46 +1,25 @@
-17:48:18 **** Incremental Build of configuration SPIFI for project main_m4 ****
+13:33:48 **** Incremental Build of configuration SPIFI for project main_m4 ****
 make -r all 
-Building file: ../src/conncomp.cpp
+Building file: ../src/button.cpp
 Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/conncomp.d" -MT"src/conncomp.o" -MT"src/conncomp.d" -o "src/conncomp.o" "../src/conncomp.cpp"
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
- };
- ^
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/conncomp.cpp:96:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-Finished building: ../src/conncomp.cpp
- 
-Building file: ../src/exec.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/exec.d" -MT"src/exec.o" -MT"src/exec.d" -o "src/exec.o" "../src/exec.cpp"
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
- };
- ^
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/exec.cpp:94:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-Finished building: ../src/exec.cpp
+arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/button.d" -MT"src/button.o" -MT"src/button.d" -o "src/button.o" "../src/button.cpp"
+../src/button.cpp: In function 'void scaleLED(uint32_t, uint32_t, uint32_t, uint32_t)':
+../src/button.cpp:43:35: warning: unused variable 't' [-Wunused-variable]
+  uint32_t max, min, current, sat, t; 
+                                   ^
+../src/button.cpp: In member function 'bool ButtonMachine::handleSignature()':
+../src/button.cpp:181:11: warning: unused variable 'fcc' [-Wunused-variable]
+  uint32_t fcc;
+           ^
+../src/button.cpp: In member function 'void ButtonMachine::setSignature()':
+../src/button.cpp:171:2: warning: 'res' is used uninitialized in this function [-Wuninitialized]
+  if (res<0)
+  ^
+../src/button.cpp: In member function 'bool ButtonMachine::handleSignature()':
+../src/button.cpp:217:35: warning: 'len' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   g_chirpUsb->useBuffer(frame, len+CAM_RES2_WIDTH*CAM_RES2_HEIGHT);
+                                   ^
+Finished building: ../src/button.cpp
  
 Building file: ../src/main_m4.cpp
 Invoking: MCU C++ Compiler
@@ -79,35 +58,6 @@ arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG
           ^
 Finished building: ../src/progblobs.cpp
  
-Building file: ../src/progchase.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progchase.d" -MT"src/progchase.o" -MT"src/progchase.d" -o "src/progchase.o" "../src/progchase.cpp"
-../src/progchase.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
- };
- ^
-../src/progchase.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/progchase.cpp: In member function 'int32_t MotorLoop::update(int32_t)':
-../src/progchase.cpp:55:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-  if (m_prevError!=0x80000000)
-                 ^
-../src/progchase.cpp:66:9: warning: 'vel' may be used uninitialized in this function [-Wmaybe-uninitialized]
-  return vel;
-         ^
-Finished building: ../src/progchase.cpp
- 
-Building file: ../src/progpt.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progpt.d" -MT"src/progpt.o" -MT"src/progpt.d" -o "src/progpt.o" "../src/progpt.cpp"
-../src/progpt.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
- };
- ^
-../src/progpt.cpp:36:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/progpt.cpp: In member function 'void ServoLoop::update(int32_t)':
-../src/progpt.cpp:55:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-  if (m_prevError!=0x80000000)
-                 ^
-Finished building: ../src/progpt.cpp
- 
 Building file: ../src/progvideo.cpp
 Invoking: MCU C++ Compiler
 arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progvideo.d" -MT"src/progvideo.o" -MT"src/progvideo.d" -o "src/progvideo.o" "../src/progvideo.cpp"
@@ -143,12 +93,12 @@ make --no-print-directory post-build
 Performing post-build steps
 arm-none-eabi-size "main_m4.axf" ; arm-none-eabi-objcopy -v -O binary "main_m4.axf" "main_m4.bin" ; checksum -p LPC4330 -d "main_m4.bin" ; arm-none-eabi-objcopy -v -O ihex "main_m4.axf" pixy_firmware.hex
    text	   data	    bss	    dec	    hex	filename
- 105008	   2316	   2884	 110208	  1ae80	main_m4.axf
+ 104784	   2316	   2884	 109984	  1ada0	main_m4.axf
 copy from `main_m4.axf' [elf32-littlearm] to `main_m4.bin' [binary]
 Written checksum 0x67ff7646 at offset 0x1c in file main_m4.bin
 Previous value 0x00000000 at offset 0x1c in file main_m4.bin
 copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
  
 
-17:48:24 Build Finished (took 6s.717ms)
+13:33:51 Build Finished (took 3s.758ms)
 

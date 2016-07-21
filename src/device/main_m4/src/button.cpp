@@ -107,29 +107,70 @@ ButtonMachine::~ButtonMachine()
 
 void ButtonMachine::ledPipe()
 {
-	Points points;
-	RGBPixel rgb;
-	uint32_t color, r, g, b, n;
-	g_blobs->m_clut.growRegion(g_rawFrame, Point16(CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2), &points);	
-	cc_sendPoints(points, CL_GROW_INC, CL_GROW_INC, g_chirpUsb);
+//	Points points;
+//	RGBPixel rgb;
+//	uint32_t color, r, g, b, n;
+//	g_blobs->m_clut.growRegion(g_rawFrame, Point16(CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2), &points);
+//	cc_sendPoints(points, CL_GROW_INC, CL_GROW_INC, g_chirpUsb);
+//
+//	IterPixel ip(g_rawFrame, &points);
+//	color = ip.averageRgb(&n);
+//
+//	rgbUnpack(color, &r, &g, &b);
+//	scaleLED(r, g, b, n);
+}
 
-	IterPixel ip(g_rawFrame, &points);
-	color = ip.averageRgb(&n);
-
-	rgbUnpack(color, &r, &g, &b);
-	scaleLED(r, g, b, n);
+int calcY(const uint8_t r, const uint8_t g, const uint8_t b){
+	int result = 9798 * r + 9617 * g + 3736 * b;
+	//cprintf("%d res", result);
+	result = result>>15;
+	//cprintf("%d result>>15", result);
+	return result;
 }
 
 void ButtonMachine::setSignature()
 {
 	int res;
+	uint8_t *frame = (uint8_t *)SRAM1_LOC;
+	/* my code */
+	int32_t len = Chirp::serialize(g_chirpUsb, frame, SRAM1_SIZE, HTYPE(FOURCC('B','A','8','1')), HINT8(RENDER_FLAG_FLUSH), UINT16(CAM_RES2_WIDTH), UINT16(CAM_RES2_HEIGHT), UINTS8_NO_COPY(CAM_RES2_WIDTH*CAM_RES2_HEIGHT), END);
+	// write frame after chirp args
+	cam_getFrame(frame+len, SRAM1_SIZE-len, CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT);
 
+
+	// bayer blyat
+	uint16_t xWidth = CAM_RES2_WIDTH;
+	uint16_t yWidth = CAM_RES2_HEIGHT;
+	cprintf("fuck!!!!");
+	uint8_t y [16000] = {1};
+	uint8_t r, g, b;
+	uint8_t i_last, j_last;
+	//cprintf("%dx%d", xWidth, yWidth);
+	// rows
+	cprintf("start circle");
+	for (int i = 0; i < yWidth; i+=2){
+		//cprintf("%dx%d", xWidth, yWidth);
+		// columns
+		for (int j = 0; j < xWidth; j += 2){
+			// extract rgb components
+			r = frame[len + i * xWidth + j + 1];
+			g = frame[len + i * xWidth + j] + frame[len + (i + 1) * xWidth + j + 1];
+			b = frame[len + (i + 1) * xWidth + j];
+			y[(i - i/2) * 160 + (j - j/2)] = calcY(r, g, b);
+//			cprintf("Y[%d][%d]", i - i/2, j - j/2);
+			j_last = j - j/2;
+		}
+		i_last = i - i/2;
+	}
+	cprintf("Y[%d][%d] = %d", i_last, j_last, y[i_last * 160 + j_last]);
+
+	g_chirpUsb->useBuffer(frame, len+CAM_RES2_WIDTH*CAM_RES2_HEIGHT);
+	/* normal code */
 	// grow region, create model, save
-	res = cc_setSigPoint(0, m_index, CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2);
-	cprintf("%dx%d", CAM_RES2_WIDTH, CAM_RES2_HEIGHT);
+	//res = cc_setSigPoint(0, m_index, CAM_RES2_WIDTH/2, CAM_RES2_HEIGHT/2);
 	if (res<0)
 		return;
-	exec_sendEvent(g_chirpUsb, EVT_PARAM_CHANGE);
+	//exec_sendEvent(g_chirpUsb, EVT_PARAM_CHANGE);
 	flashLED(4); 
 }
 
@@ -147,16 +188,17 @@ bool ButtonMachine::handleSignature()
 	{
    		//cprintf("push");
 		cam_getFrameChirpFlags(CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT, g_chirpUsb, 0);
-		ledPipe();
+		//ledPipe();
 	}
 	else if (m_goto!=0) // else grab frame and flush
 	{
-		const char space[2] = {' ', '\0'};
+		//cprintf("handle");
+		//const char space[2] = {' ', '\0'};
 		//cprintf("push m_goto!=0");
 		// fill buffer contents manually for return data
-		len = Chirp::serialize(g_chirpUsb, frame, SRAM1_SIZE, HTYPE(FOURCC('B','A','8','1')), HINT8(RENDER_FLAG_FLUSH), UINT16(CAM_RES2_WIDTH), UINT16(CAM_RES2_HEIGHT), UINTS8_NO_COPY(CAM_RES2_WIDTH*CAM_RES2_HEIGHT), END);
+		//len = Chirp::serialize(g_chirpUsb, frame, SRAM1_SIZE, HTYPE(FOURCC('B','A','8','1')), HINT8(RENDER_FLAG_FLUSH), UINT16(CAM_RES2_WIDTH), UINT16(CAM_RES2_HEIGHT), UINTS8_NO_COPY(CAM_RES2_WIDTH*CAM_RES2_HEIGHT), END);
 		// write frame after chirp args
-		cam_getFrame(frame+len, SRAM1_SIZE-len, CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT);
+		//cam_getFrame(frame+len, SRAM1_SIZE-len, CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT);
 		//cam_getFrameChirpFlags(CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT, g_chirpUsb);
 		//cprintf("may be crash");
 //		for (uint8_t i = 0; i < 4; i++){
@@ -169,7 +211,9 @@ bool ButtonMachine::handleSignature()
 //			}
 //			//cprintf("%s\n", row_pixels_char);
 //		}
-		bayerToY(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, frame + len);
+		//uint8_t y [40000] = {1};
+		//bayerToY(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, frame + len, y);
+		//cprintf("%d", y[0]);
 		g_chirpUsb->useBuffer(frame, len+CAM_RES2_WIDTH*CAM_RES2_HEIGHT);
 
 	}
