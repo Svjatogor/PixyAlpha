@@ -120,13 +120,13 @@ void ButtonMachine::ledPipe()
 //	scaleLED(r, g, b, n);
 }
 
-//int calcY(const uint8_t r, const uint8_t g, const uint8_t b){
-//	int result = 9798 * r + 9617 * g + 3736 * b;
-//	//cprintf("%d res", result);
-//	result = result>>15;
-//	//cprintf("%d result>>15", result);
-//	return result;
-//}
+int calcY(const uint8_t r, const uint8_t g, const uint8_t b){
+	int result = 9798 * r + 9617 * g + 3736 * b;
+	//cprintf("%d res", result);
+	result = result>>15;
+	//cprintf("%d result>>15", result);
+	return result;
+}
 
 void ButtonMachine::setSignature()
 {
@@ -138,32 +138,32 @@ void ButtonMachine::setSignature()
 	cam_getFrame(frame+len, SRAM1_SIZE-len, CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT);
 
 
-//	// bayer blyat
-//	uint16_t xWidth = CAM_RES2_WIDTH;
-//	uint16_t yWidth = CAM_RES2_HEIGHT;
-//	cprintf("fuck!!!!");
-//	uint8_t y [16000] = {1};
-//	uint8_t r, g, b;
-//	uint8_t i_last, j_last;
-//	//cprintf("%dx%d", xWidth, yWidth);
-//	// rows
-//	cprintf("start circle");
-//	for (int i = 0; i < yWidth; i+=2){
-//		//cprintf("%dx%d", xWidth, yWidth);
-//		// columns
-//		for (int j = 0; j < xWidth; j += 2){
-//			// extract rgb components
-//			r = frame[len + i * xWidth + j + 1];
-//			g = frame[len + i * xWidth + j] + frame[len + (i + 1) * xWidth + j + 1];
-//			b = frame[len + (i + 1) * xWidth + j];
-//			frame[len + (i - i/2) * 160 + (j - j/2)] = calcY(r, g, b);
-////			cprintf("Y[%d][%d]", i - i/2, j - j/2);
-//			j_last = j - j/2;
-//		}
-//		i_last = i - i/2;
-//	}
-//	cprintf("Y[%d][%d] = %d", 0, 0, frame[0]);
-//	cprintf("Y[%d][%d] = %d", i_last, j_last, frame[i_last * 160 + j_last]);
+	// bayer blyat
+	uint16_t xWidth = CAM_RES2_WIDTH;
+	uint16_t yWidth = CAM_RES2_HEIGHT;
+	cprintf("fuck!!!!");
+	uint8_t y [16000] = {1};
+	uint8_t r, g, b;
+	uint8_t i_last, j_last;
+	//cprintf("%dx%d", xWidth, yWidth);
+	// rows
+	cprintf("start circle");
+	for (int i = 0; i < yWidth; i+=2){
+		//cprintf("%dx%d", xWidth, yWidth);
+		// columns
+		for (int j = 0; j < xWidth; j += 2){
+			// extract rgb components
+			r = frame[len + i * xWidth + j + 1];
+			g = frame[len + i * xWidth + j] + frame[len + (i + 1) * xWidth + j + 1];
+			b = frame[len + (i + 1) * xWidth + j];
+			frame[len + (i - i/2) * 160 + (j - j/2)] = calcY(r, g, b);
+//			cprintf("Y[%d][%d]", i - i/2, j - j/2);
+			j_last = j - j/2;
+		}
+		i_last = i - i/2;
+	}
+	cprintf("Y[%d][%d] = %d", 0, 0, y[0]);
+	//cprintf("Y[%d][%d] = %d", i_last, j_last, y[i_last * 160 + j_last]);
 
 	g_chirpUsb->useBuffer(frame, len+CAM_RES2_WIDTH*CAM_RES2_HEIGHT);
 	/* normal code */
@@ -172,7 +172,7 @@ void ButtonMachine::setSignature()
 	if (res<0)
 		return;
 	//exec_sendEvent(g_chirpUsb, EVT_PARAM_CHANGE);
-	flashLED(4);
+	flashLED(4); 
 }
 
 bool ButtonMachine::handleSignature()

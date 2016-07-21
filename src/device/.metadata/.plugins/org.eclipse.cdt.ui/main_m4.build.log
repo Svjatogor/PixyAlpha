@@ -1,4 +1,4 @@
-13:33:48 **** Incremental Build of configuration SPIFI for project main_m4 ****
+14:31:55 **** Incremental Build of configuration SPIFI for project main_m4 ****
 make -r all 
 Building file: ../src/button.cpp
 Invoking: MCU C++ Compiler
@@ -8,15 +8,15 @@ arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG
   uint32_t max, min, current, sat, t; 
                                    ^
 ../src/button.cpp: In member function 'bool ButtonMachine::handleSignature()':
-../src/button.cpp:181:11: warning: unused variable 'fcc' [-Wunused-variable]
+../src/button.cpp:182:11: warning: unused variable 'fcc' [-Wunused-variable]
   uint32_t fcc;
            ^
 ../src/button.cpp: In member function 'void ButtonMachine::setSignature()':
-../src/button.cpp:171:2: warning: 'res' is used uninitialized in this function [-Wuninitialized]
+../src/button.cpp:172:2: warning: 'res' is used uninitialized in this function [-Wuninitialized]
   if (res<0)
   ^
 ../src/button.cpp: In member function 'bool ButtonMachine::handleSignature()':
-../src/button.cpp:217:35: warning: 'len' may be used uninitialized in this function [-Wmaybe-uninitialized]
+../src/button.cpp:218:35: warning: 'len' may be used uninitialized in this function [-Wmaybe-uninitialized]
    g_chirpUsb->useBuffer(frame, len+CAM_RES2_WIDTH*CAM_RES2_HEIGHT);
                                    ^
 Finished building: ../src/button.cpp
@@ -93,12 +93,12 @@ make --no-print-directory post-build
 Performing post-build steps
 arm-none-eabi-size "main_m4.axf" ; arm-none-eabi-objcopy -v -O binary "main_m4.axf" "main_m4.bin" ; checksum -p LPC4330 -d "main_m4.bin" ; arm-none-eabi-objcopy -v -O ihex "main_m4.axf" pixy_firmware.hex
    text	   data	    bss	    dec	    hex	filename
- 104784	   2316	   2884	 109984	  1ada0	main_m4.axf
+ 104832	   2316	   2884	 110032	  1add0	main_m4.axf
 copy from `main_m4.axf' [elf32-littlearm] to `main_m4.bin' [binary]
 Written checksum 0x67ff7646 at offset 0x1c in file main_m4.bin
 Previous value 0x00000000 at offset 0x1c in file main_m4.bin
 copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
  
 
-13:33:51 Build Finished (took 3s.758ms)
+14:31:58 Build Finished (took 2s.762ms)
 
