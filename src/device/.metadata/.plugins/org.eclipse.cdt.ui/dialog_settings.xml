@@ -17,6 +17,12 @@
 		<item value="false" key="caseSensitive"/>
 		<item value="227191" key="searchFlags"/>
 		<list key="previousPatterns">
+			<item value="lego"/>
+			<item value="setSignature"/>
+			<item value="cc_setSigPoint"/>
+			<item value="cc_sendPoints"/>
+			<item value="ledPipe"/>
+			<item value="cc_send"/>
 			<item value="handleSignature"/>
 			<item value="cam_getFrameChirpFlags"/>
 			<item value="blobsLoop"/>
