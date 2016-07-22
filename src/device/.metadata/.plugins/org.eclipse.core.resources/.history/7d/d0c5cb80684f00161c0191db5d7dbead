@@ -558,7 +558,7 @@ int32_t cam_getFrameChirpFlags(const uint8_t &type, const uint16_t &xOffset, con
 			r = frame[len + i * xWidth + j + 1];
 			g = frame[len + i * xWidth + j] + frame[len + (i + 1) * xWidth + j + 1];
 			b = frame[len + (i + 1) * xWidth + j];
-			frame[len + (i - i/2) * (xWidth) + (j - j/2)] = calcY(r, g, b);
+			frame[len + (i - i/2) * (xWidth / 2) + (j - j/2)] = calcY(r, g, b);
 			j_last = j - j/2;
 		}
 		i_last = i - i/2;

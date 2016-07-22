@@ -551,16 +551,19 @@ int32_t cam_getFrameChirpFlags(const uint8_t &type, const uint16_t &xOffset, con
 	uint8_t r, g, b;
 	uint8_t i_last, j_last;
 	// rows
+	frame = frame + len;
 	for (int i = 0; i < yWidth; i+=2){
 		// columns
 		for (int j = 0; j < xWidth; j += 2){
 			// extract rgb components
-			r = frame[len + i * xWidth + j + 1];
-			g = frame[len + i * xWidth + j] + frame[len + (i + 1) * xWidth + j + 1];
-			b = frame[len + (i + 1) * xWidth + j];
-			frame[len + (i - i/2) * (xWidth) + (j - j/2)] = calcY(r, g, b);
+			r = *(frame  + 1);
+			g = *frame + *(frame + xWidth + 1);
+			b = *(frame + xWidth);
+			*(frame - j/2) = calcY(r, g, b);
 			j_last = j - j/2;
+			frame += 2;
 		}
+		frame += 2;
 		i_last = i - i/2;
 	}
 	// tell chirp to use this buffer
