@@ -19,6 +19,8 @@
 #include <QMainWindow>
 #include <vector>
 #include "monparameterdb.h"
+#include <QPlainTextEdit>
+#include "debug_render.h"
 
 #define PIXY_PARAMFILE_TAG      "Pixy_parameters"
 
@@ -43,6 +45,8 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    Ui::MainWindow *m_ui;
+    static QPlainTextEdit* costil_debug;
     explicit MainWindow(int argc, char *argv[], QWidget *parent = 0);
     ~MainWindow();
 
@@ -57,7 +61,7 @@ private slots:
     void handleLoadParams();
     void handleConfigDialogFinished();
     void interpreterFinished();
-    void handleVersion(ushort major, ushort minor, ushort build);
+    void handleVersion(ushort major, ushort minor, ushort build, QString type);
     void on_actionAbout_triggered();
     void on_actionPlay_Pause_triggered();
     void on_actionDefault_program_triggered();
@@ -83,19 +87,20 @@ private:
     void close();
     void parseCommandline(int argc, char *argv[]);
     void program(const QString &file);
-    void handleFirmware(ushort major, ushort minor, ushort build);
+    void handleFirmware(ushort major, ushort minor, ushort build, const QString &type);
 
     bool m_pixyConnected;
     bool m_pixyDFUConnected;
     enum {WAIT_NONE, WAIT_EXITTING, WAIT_SAVING_PARAMS, WAIT_LOADING_PARAMS} m_waiting;
     VideoWidget *m_video;
     ConsoleWidget *m_console;
+    QPlainTextEdit *debugConsole;
     Interpreter *m_interpreter;
     ConnectEvent *m_connect;
     Flash *m_flash;
     ConfigDialog *m_configDialog;
     std::vector<QAction *> m_actions;
-    Ui::MainWindow *m_ui;
+
 
     QString m_firmwareFile;
     QString m_argvFirmwareFile;

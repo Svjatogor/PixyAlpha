@@ -142,7 +142,7 @@ int blobsLoop()
 	// write frame after chirp args
 	result = cam_getFrame(frame+len, SRAM1_SIZE-len, CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT);
 
-	convolutionImage(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, len, frame, false);
+	//convolutionImage(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, len, frame, false);
 
 	// tell chirp to use this buffer
 	g_chirpUsb->useBuffer(frame, len+CAM_RES2_WIDTH*CAM_RES2_HEIGHT);

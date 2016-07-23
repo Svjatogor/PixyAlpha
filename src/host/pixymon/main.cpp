@@ -44,6 +44,7 @@ int main(int argc, char *argv[])
 #endif
 
     MainWindow w(argc, argv);
+    //MainWindow::consil_ui = w.m_ui;
     w.show();
 
     return a.exec();

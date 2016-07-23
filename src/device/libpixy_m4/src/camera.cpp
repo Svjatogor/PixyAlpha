@@ -478,6 +478,15 @@ int cam_testPattern(const uint8_t &enable)
 	return 0;
 }
 
+int calcY(const uint8_t r, const uint8_t g, const uint8_t b){
+	int result = 9798 * r + 9617 * g + 3736 * b;
+	//cprintf("%d res", result);
+	result = result>>15;
+	//cprintf("%d result>>15", result);
+	return result;
+}
+
+
 int32_t cam_getFrame(uint8_t *memory, uint32_t memSize, uint8_t type, uint16_t xOffset, uint16_t yOffset, uint16_t xWidth, uint16_t yWidth)
 {
 	int32_t res;
@@ -515,6 +524,19 @@ int32_t cam_getFrame(uint8_t *memory, uint32_t memSize, uint8_t type, uint16_t x
 		UINT8(type), UINT32((uint32_t)memory), UINT16(xOffset), UINT16(yOffset), UINT16(xWidth), UINT16(yWidth), END_OUT_ARGS,
 		&responseInt, END_IN_ARGS);
 
+	// bayer
+	uint8_t r, g, b;
+	// rows
+	for (int i = 0; i < yWidth; i+=2){
+		// columns
+		for (int j = 0; j < xWidth; j += 2){
+			// extract rgb components
+			r = memory[i * xWidth + j + 1];
+			g = memory[i * xWidth + j] + memory[(i + 1) * xWidth + j + 1];
+			b = memory[(i + 1) * xWidth + j];
+			memory[(i - i/2) * (xWidth) + (j - j/2)] = calcY(r, g, b);
+		}
+	}
 	if (responseInt==0)
 	{
 		g_rawFrame.m_pixels = memory;
@@ -530,14 +552,6 @@ int32_t cam_getFrameChirp(const uint8_t &type, const uint16_t &xOffset, const ui
 	return cam_getFrameChirpFlags(type, xOffset, yOffset, xWidth, yWidth, chirp);
 }
 
-int calcY(const uint8_t r, const uint8_t g, const uint8_t b){
-	int result = 9798 * r + 9617 * g + 3736 * b;
-	//cprintf("%d res", result);
-	result = result>>15;
-	//cprintf("%d result>>15", result);
-	return result;
-}
-
 int32_t cam_getFrameChirpFlags(const uint8_t &type, const uint16_t &xOffset, const uint16_t &yOffset, const uint16_t &xWidth, const uint16_t &yWidth, Chirp *chirp, uint8_t renderFlags)
 {
 	int32_t result, len;
@@ -547,22 +561,6 @@ int32_t cam_getFrameChirpFlags(const uint8_t &type, const uint16_t &xOffset, con
 	len = Chirp::serialize(chirp, frame, SRAM1_SIZE, HTYPE(FOURCC('B','A','8','1')), HINT8(renderFlags), UINT16(xWidth), UINT16(yWidth), UINTS8_NO_COPY(xWidth*yWidth), END);
 	// write frame after chirp args
 	result = cam_getFrame(frame+len, SRAM1_SIZE-len, type, xOffset, yOffset, xWidth, yWidth);
-	// bayer
-	uint8_t r, g, b;
-	uint8_t i_last, j_last;
-	// rows
-	for (int i = 0; i < yWidth; i+=2){
-		// columns
-		for (int j = 0; j < xWidth; j += 2){
-			// extract rgb components
-			r = frame[len + i * xWidth + j + 1];
-			g = frame[len + i * xWidth + j] + frame[len + (i + 1) * xWidth + j + 1];
-			b = frame[len + (i + 1) * xWidth + j];
-			frame[len + (i - i/2) * (xWidth) + (j - j/2)] = calcY(r, g, b);
-			j_last = j - j/2;
-		}
-		i_last = i - i/2;
-	}
 	// tell chirp to use this buffer
 	chirp->useBuffer(frame, len+xWidth*yWidth);
 

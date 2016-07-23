@@ -48,7 +48,7 @@ void sendCustom(uint8_t renderFlags=RENDER_FLAG_FLUSH)
 	// write frame after chirp args
 	cam_getFrame(frame+len, SRAM1_SIZE-len, CAM_GRAB_M1R2, 0, 0, CAM_RES2_WIDTH, CAM_RES2_HEIGHT);
 
-	convolutionImage(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, len, frame, true);
+	//convolutionImage(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, len, frame, true);
 	//inverceImage(CAM_RES2_WIDTH, CAM_RES2_HEIGHT, len, frame);
 	// tell chirp to use this buffer
 	g_chirpUsb->useBuffer(frame, len+CAM_RES2_WIDTH*CAM_RES2_HEIGHT);

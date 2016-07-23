@@ -73,6 +73,11 @@ MainWindow::MainWindow(int argc, char *argv[], QWidget *parent) :
     m_ui->imageLayout->addWidget(m_video);
     m_ui->imageLayout->addWidget(m_console);
 
+    // set console on video class
+    m_video->setConsole(m_ui->debugText);
+
+    //DebugRender *ren = DebugRender::getInstance(m_ui->debugText);
+
     m_ui->toolBar->addAction(m_ui->actionPlay_Pause);
 
     m_ui->actionDefault_program->setIcon(QIcon(":/icons/icons/home.png"));
@@ -111,6 +116,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::parseCommandline(int argc, char *argv[])
 {
+
     int i;
 
     // when updating to Qt 5, we can use QCommandLineParser
@@ -336,7 +342,7 @@ void MainWindow::connectPixy(bool state)
                 connect(m_interpreter, SIGNAL(connected(Device,bool)), this, SLOT(handleConnected(Device,bool)));
                 connect(m_interpreter, SIGNAL(actionScriptlet(QString,QStringList)), this, SLOT(handleActionScriptlet(QString,QStringList)));
                 connect(m_interpreter, SIGNAL(paramLoaded()), this, SLOT(handleLoadParams()));
-                connect(m_interpreter, SIGNAL(version(ushort,ushort,ushort)), this, SLOT(handleVersion(ushort,ushort,ushort)));
+                connect(m_interpreter, SIGNAL(version(ushort,ushort,ushort,QString)), this, SLOT(handleVersion(ushort,ushort,ushort,QString)));
                 m_interpreter->start();
             }
             m_pixyConnected = true;
@@ -455,11 +461,12 @@ void MainWindow::on_actionAbout_triggered()
 
     if (m_interpreter)
     {
-        QString fwver;
+        QString fwver, fwtype;
         uint16_t *version;
         version = m_interpreter->getVersion();
-        contents += fwver.sprintf("<b>Pixy firmware version %d.%d.%d</b> (queried)<br>", version[0], version[1], version[2]);
-    }
+        fwtype = m_interpreter->getVersionType();
+        contents += fwver.sprintf("<b>Pixy firmware version %d.%d.%d ", version[0], version[1], version[2]) + fwtype + " build</b> (queried)<br>";
+      }
 
     contents +=
             "<br>The latest version of PixyMon and Pixy firmware can be downloaded "
@@ -565,7 +572,7 @@ void MainWindow::interpreterFinished()
     updateButtons();
 }
 
-void MainWindow::handleFirmware(ushort major, ushort minor, ushort build)
+void MainWindow::handleFirmware(ushort major, ushort minor, ushort build, const QString &type)
 {
     // check executable directory for firmware
     int i;
@@ -575,34 +582,41 @@ void MainWindow::handleFirmware(ushort major, ushort minor, ushort build)
     QString path = QFileInfo(QCoreApplication::applicationFilePath()).absolutePath();
     QDir dir(path);
     QStringList files = dir.entryList(filters);
-    QStringList parts;
+    QStringList parts, dparts;
     QString fwFilename;
     QString maxVerStr;
+    QString ftype;
     ushort fmajor, fminor, fbuild;
     qlonglong ver, currVer, maxVer;
 
     // find the maximum version in the executable directory
-    currVer = ((qlonglong)major<<32) | (minor<<16) | build;
+    currVer = ((qlonglong)major<<32) | ((qlonglong)minor<<16) | build;
     for (i=0, maxVer=0; i<files.size(); i++)
     {
-        parts = files[i].split('-');
-        if (parts.size()>1)
+        dparts = files[i].split('-');
+        if (dparts.size()>1)
         {
-            parts = parts[1].split('.');
-            if (parts.size()>1)
+            parts = dparts[1].split('.');
+            if (parts.size()>=3)
             {
                 fmajor = parts[0].toInt();
                 fminor = parts[1].toInt();
                 fbuild = parts[2].toInt();
-
-                ver = ((qlonglong)fmajor<<32) | (fminor<<16) | fbuild;
-                if (ver>currVer)
+                if (dparts.size()>=3)
+                {
+                    parts = dparts[2].split('.');
+                    ftype = parts[0];
+                }
+                else
+                    ftype = "general";
+                ver = ((qlonglong)fmajor<<32) | ((qlonglong)fminor<<16) | fbuild;
+                if (ver>currVer && ftype.compare(type, Qt::CaseInsensitive)==0)
                 {
                     if (ver>maxVer)
                     {
                         maxVer = ver;
                         fwFilename = files[i];
-                        maxVerStr = QString::number(fmajor) + "." + QString::number(minor) + "." + QString::number(fbuild);
+                        maxVerStr = QString::number(fmajor) + "." + QString::number(minor) + "." + QString::number(fbuild) + "-" + ftype;
                     }
                 }
             }
@@ -624,7 +638,7 @@ void MainWindow::handleFirmware(ushort major, ushort minor, ushort build)
         {
             QString str =
                     "There is a more recent firmware version (" + maxVerStr + ") available.<br>"
-                    "Your Pixy is running firmware version " + QString::number(major) + "." + QString::number(minor) + "." + QString::number(build) + ".<br><br>"
+                    "Your Pixy is running firmware version " + QString::number(major) + "." + QString::number(minor) + "." + QString::number(build) + "-" + type + ".<br><br>"
                     "Would you like to upload this firmware into your Pixy? <i>Psst, click yes!</i>";
             m_fwMessage = new QMessageBox(QMessageBox::Question, "New firmware available!", str, QMessageBox::Yes|QMessageBox::No);
             m_fwMessage->setDefaultButton(QMessageBox::Yes);
@@ -660,7 +674,7 @@ void MainWindow::handleFirmware(ushort major, ushort minor, ushort build)
     }
 }
 
-void MainWindow::handleVersion(ushort major, ushort minor, ushort build)
+void MainWindow::handleVersion(ushort major, ushort minor, ushort build, QString type)
 {
     QString str;
 
@@ -669,7 +683,7 @@ void MainWindow::handleVersion(ushort major, ushort minor, ushort build)
         // Interpreter will automatically exit if there's a version incompatibility, so no need to close interpreter
         m_versionIncompatibility = true;
     }
-    handleFirmware(major, minor, build);
+    handleFirmware(major, minor, build, type);
     //str = str.sprintf("Pixy firmware version %d.%d.%d.\n", major, minor, build);
     //m_console->print(str);
 }
@@ -694,7 +708,14 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_actionHelp_triggered()
 {
-    QDesktopServices::openUrl(QUrl("http://charmedlabs.com/pixymonhelp"));
+    QString fwtype;
+    if (m_interpreter)
+        fwtype = m_interpreter->getVersionType();
+
+    if (fwtype.contains("LEGO", Qt::CaseInsensitive))
+        QDesktopServices::openUrl(QUrl("http://charmedlabs.com/pixymonhelp_lego"));
+    else
+        QDesktopServices::openUrl(QUrl("http://charmedlabs.com/pixymonhelp"));
 }
 
 void MainWindow::handleLoadParams()
@@ -766,15 +787,14 @@ void MainWindow::on_actionLoad_Pixy_parameters_triggered()
             {
                 ParamFile pf;
                 pf.open(flist[0], true);
-                res = pf.read(PIXY_PARAMFILE_TAG, &m_interpreter->m_pixyParameters);
+                res = pf.read(PIXY_PARAMFILE_TAG, &m_interpreter->m_pixyParameters, true);
                 pf.close();
 
                 if (res>=0)
                 {
                     m_interpreter->saveParams(); // save parapeters back to pixy
-                    // reload config dialog if it's up
-                    if (m_configDialog)
-                        m_configDialog->load();
+                    m_interpreter->execute("close");
+                    m_console->print("Parameters have been successfully loaded!  Resetting...\n");
                 }
             }
         }

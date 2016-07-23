@@ -19,6 +19,7 @@ IF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 add_definitions(-D__LINUX__)
 ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
+
 file(STRINGS "cmake/VERSION" LIBPIXY_VERSION)
 add_definitions(-D__LIBPIXY_VERSION__="${LIBPIXY_VERSION}")
 
@@ -28,17 +29,17 @@ add_library (pixyusb STATIC src/chirpreceiver.cpp
                             src/pixy.cpp
                             src/usblink.cpp
                             src/utils/timer.cpp
-                            ../../common/chirp.cpp)
+                            ../../common/src/chirp.cpp)
 
 set (THIS_LIB libpixyusb)
 
 include_directories (src
                      src/util
                      include
-                     ../../common
-                     C:/Program Files/boost/boost_1_55_0
+                     ../../common/inc
+                     ${Boost_INCLUDE_DIR}
                      ${LIBUSB_1_INCLUDE_DIRS})
 
 install (TARGETS pixyusb DESTINATION lib)
 install (FILES include/pixy.h DESTINATION include)
-install (FILES ../../common/pixydefs.h DESTINATION include)
+install (FILES ../../common/inc/pixydefs.h DESTINATION include)

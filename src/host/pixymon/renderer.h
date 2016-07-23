@@ -20,12 +20,13 @@
 #include <QImage>
 #include "pixytypes.h"
 #include "monmodule.h"
+#include <QMessageBox>
 //#include "processblobs.h"
 
 #include <simplevector.h>
 typedef SimpleVector<Point16> Points;
 
-#define RAWFRAME_SIZE    0x10000
+#define RAWFRAME_SIZE    0x12000
 #define PALETTE_SIZE     7
 
 class Interpreter;
@@ -40,6 +41,8 @@ public:
     Renderer(VideoWidget *video, Interpreter *interpreter);
     ~Renderer();
 
+    friend class CccModule;
+
     // MonModule
     virtual bool render(uint32_t fourcc, const void *args[]);
     virtual void paramChange();
@@ -50,13 +53,8 @@ public:
 
     int renderCCQ1(uint8_t renderFlags, uint16_t width, uint16_t height, uint32_t numVals, uint32_t *qVals);
     int renderBA81(uint8_t renderFlags, uint16_t width, uint16_t height, uint32_t frameLen, uint8_t *frame);
-    int renderCCB1(uint8_t renderFlags, uint16_t width, uint16_t height, uint32_t numBlobs, uint16_t *blobs);
-    int renderCCB2(uint8_t renderFlags, uint16_t width, uint16_t height, uint32_t numBlobs, uint16_t *blobs, uint32_t numCCBlobs, uint16_t *ccBlobs);
     int renderBLT1(uint8_t renderFlags, uint16_t width, uint16_t height,
                    uint16_t blockWidth, uint16_t blockHeight, uint32_t numPoints, uint16_t *points);
-
-    void renderBlobsB(bool blend, QImage *image, float scale, BlobB *blobs, uint32_t numBlobs);
-    void renderBlobsA(bool blend, QImage *image, float scale, BlobA *blobs, uint32_t numBlobs);
 
     void renderRects(const Points &points, uint32_t size);
     void renderRect(const RectA &rect);
@@ -66,16 +64,13 @@ public:
     void setPalette(const uint32_t palette[]);
     uint32_t *getPalette();
 
-
+    void emitImage(QImage img, uchar renderFlags);
     Frame8 m_rawFrame;
-
-signals:
-    void image(QImage image, uchar renderFlags);
+    VideoWidget *m_video;
 
 private:
     inline void interpolateBayer(unsigned int width, unsigned int x, unsigned int y, unsigned char *pixel, unsigned int &r, unsigned int &g, unsigned int &b);
 
-    VideoWidget *m_video;
     Interpreter *m_interpreter;
     QImage m_background;
     bool m_paletteSet;
@@ -83,6 +78,9 @@ private:
     static const unsigned int m_defaultPalette[PALETTE_SIZE];
 
     bool m_highlightOverexp;
+signals:
+    void image(QImage image, uchar renderFlags);
+    void message(QString message);
 };
 
 #endif // RENDERER_H

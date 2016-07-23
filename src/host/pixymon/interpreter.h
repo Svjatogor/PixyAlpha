@@ -98,6 +98,7 @@ public:
     void unwait();
 
     uint16_t *getVersion();
+    QString getVersionType();
 
     void getSelection(RectA *region);
     void getSelection(Point16 *point);
@@ -126,7 +127,7 @@ signals:
     void actionScriptlet(QString action, QStringList scriptlet);
     void parameter(QString id, QByteArray data);
     void paramLoaded();
-    void version(ushort major, ushort minor, ushort build);
+    void version(ushort major, ushort minor, ushort build, QString type);
 
 public slots:
 
@@ -159,7 +160,7 @@ private:
 
     void prompt();
 
-    QString extractProperty(const QString &tag, QStringList *words, QString *desc);
+    QString extractProperty(const QString &tag, QString *desc);
     void handleProperties(const uint8_t *argList, Parameter *parameter, QString *desc);
     void handleSaveParams(bool reject);
     void handlePixySaveParams(bool shadow);
@@ -224,6 +225,7 @@ private:
 
     uint8_t m_argTypes[0x100];
     uint16_t m_version[3];
+    QString m_versionType;
     QString m_initScript;
 };
 

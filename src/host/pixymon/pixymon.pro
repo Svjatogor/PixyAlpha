@@ -39,7 +39,9 @@ SOURCES += main.cpp\
     monparameterdb.cpp \
     cccmodule.cpp \
     debug.cpp \
-    blobs2.cpp
+    blobs2.cpp \
+    timer.cpp \
+    debug_render.cpp
 
 HEADERS  += mainwindow.h \
     videowidget.h \
@@ -78,7 +80,9 @@ HEADERS  += mainwindow.h \
     monparameterdb.h \
     cccmodule.h \
     debug.h \
-    blobs2.h
+    blobs2.h \
+    timer.h \
+    debug_render.h
 
 INCLUDEPATH += ../../common/inc
 

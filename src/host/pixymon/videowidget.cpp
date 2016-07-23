@@ -25,6 +25,7 @@
 //#include "interpreter.h"
 #include "renderer.h"
 
+
 VideoWidget::VideoWidget(MainWindow *main) : QWidget((QWidget *)main)
 {
     qRegisterMetaType<VideoWidget::InputMode>("VideoWidget::InputMode");
@@ -36,6 +37,7 @@ VideoWidget::VideoWidget(MainWindow *main) : QWidget((QWidget *)main)
     m_drag = false;
     m_inputMode = NONE;
     m_selection = false;
+    m_aspectRatio = VW_ASPECT_RATIO;
 
     // set size policy--- preferred aspect ratio
     QSizePolicy policy = sizePolicy();
@@ -50,6 +52,18 @@ VideoWidget::~VideoWidget()
 }
 
 
+// Set console for debug
+void VideoWidget::setConsole(QPlainTextEdit* console)
+{
+    m_console = console;
+    m_console->setReadOnly(true);
+    m_console->setDocumentTitle("Debug information:\n");
+    m_draw_count = 0;
+    m_time = new QTime();
+    m_time->start();
+    m_count_frame = 0;
+}
+
 //0: don’t render, just put on image list, first
 //RENDER_FLAG_BLEND: tack on to end of image list
 //RENDER_FLAG_FLUSH put on image list first, and render
@@ -57,8 +71,22 @@ VideoWidget::~VideoWidget()
 
 void VideoWidget::handleImage(QImage image, uchar renderFlags)
 {
+    m_count_frame++;
+    if (m_time->elapsed() >= 1000)
+    {
+        m_console->setPlainText(QString("FPS: %1 \n %2 x %3").arg(m_count_frame).arg(image.width()).arg(image.height()));
+        m_count_frame = 0;
+        m_time->restart();
+    }
     if (!(renderFlags&RENDER_FLAG_BLEND))
         m_images.clear();
+//    m_console->appendPlainText("handleImage\n");
+//    m_draw_count++;
+//    if (m_draw_count == 100)
+//    {
+//        m_draw_count = 0;
+//        m_console->clear();
+//    }
     m_images.push_back(image);
     if (renderFlags&RENDER_FLAG_FLUSH)
     {
@@ -69,6 +97,10 @@ void VideoWidget::handleImage(QImage image, uchar renderFlags)
     }
 }
 
+void VideoWidget::messageInDebug(QString message)
+{
+    m_console->appendPlainText(message);
+}
 
 void VideoWidget::clear()
 {
@@ -110,6 +142,12 @@ void VideoWidget::paintEvent(QPaintEvent *event)
     war = (float)m_width/(float)m_height; // widget aspect ratio
     pmar = (float)bgPixmap.width()/(float)bgPixmap.height();
 
+    if (pmar!=m_aspectRatio)
+    {
+        m_aspectRatio = pmar;
+        updateGeometry();
+    }
+
     // set blending mode
     p.setCompositionMode(QPainter::CompositionMode_SourceOver);
 
@@ -150,7 +188,7 @@ void VideoWidget::paintEvent(QPaintEvent *event)
 
 int VideoWidget::heightForWidth(int w) const
 {
-    return w/VW_ASPECT_RATIO;
+    return w/m_aspectRatio;
 }
 
 void VideoWidget::mouseMoveEvent(QMouseEvent *event)

@@ -1,59 +1,5 @@
-20:28:18 **** Incremental Build of configuration Release for project libpixy_m4 ****
+19:07:36 **** Incremental Build of configuration Release for project libpixy_m4 ****
 make -r all 
-Building file: ../src/camera.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_NONE -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/camera.d" -MT"src/camera.o" -MT"src/camera.d" -o "src/camera.o" "../src/camera.cpp"
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
- };
- ^
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp:169:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/camera.cpp: In function 'int32_t cam_getFrameChirpFlags(const uint8_t&, const uint16_t&, const uint16_t&, const uint16_t&, const uint16_t&, Chirp*, uint8_t)':
-../src/camera.cpp:552:10: warning: variable 'i_last' set but not used [-Wunused-but-set-variable]
-  uint8_t i_last, j_last;
-          ^
-../src/camera.cpp:552:18: warning: variable 'j_last' set but not used [-Wunused-but-set-variable]
-  uint8_t i_last, j_last;
-                  ^
-../src/camera.cpp: In function 'void cam_setRegs(const uint8_t*, int)':
-../src/camera.cpp:594:17: warning: unused variable 'q' [-Wunused-variable]
-    volatile int q = 0;
-                 ^
-Finished building: ../src/camera.cpp
- 
 Building file: ../src/pixy_init.cpp
 Invoking: MCU C++ Compiler
 arm-none-eabi-c++ -D__MULTICORE_NONE -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -D__LPC43XX__ -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\inc" -I../../common/inc -I../../../common/inc -Os -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pixy_init.d" -MT"src/pixy_init.o" -MT"src/pixy_init.d" -o "src/pixy_init.o" "../src/pixy_init.cpp"
@@ -62,7 +8,6 @@ Finished building: ../src/pixy_init.cpp
 Building target: liblibpixy_m4.a
 Invoking: MCU Archiver
 arm-none-eabi-ar -r  "liblibpixy_m4.a"  ./src/blob.o ./src/blobs.o ./src/calc.o ./src/camera.o ./src/chirp.o ./src/colorlut.o ./src/debug_frmwrk.o ./src/flash.o ./src/fpu_init.o ./src/ipc_mbx.o ./src/led.o ./src/lpc43xx_adc.o ./src/lpc43xx_cgu.o ./src/lpc43xx_i2c.o ./src/lpc43xx_scu.o ./src/lpc43xx_ssp.o ./src/lpc43xx_timer.o ./src/lpc43xx_uart.o ./src/misc.o ./src/param.o ./src/pixy_init.o ./src/platform_config.o ./src/power.o ./src/qqueue.o ./src/rcservo.o ./src/sccb.o ./src/smlink.o ./src/system_LPC43xx.o ./src/usbcore.o ./src/usbdesc.o ./src/usbhw.o ./src/usblink.o ./src/usbuser.o   
-c:\nxp\LPCXpresso_8.1.4_606\lpcxpresso\tools\bin\arm-none-eabi-ar.exe: creating liblibpixy_m4.a
 Finished building target: liblibpixy_m4.a
  
 make --no-print-directory post-build
@@ -72,7 +17,7 @@ arm-none-eabi-size "liblibpixy_m4.a" ; # arm-none-eabi-objdump -h -S "liblibpixy
    1111	      0	      7	   1118	    45e	blob.o (ex liblibpixy_m4.a)
    4612	      0	      0	   4612	   1204	blobs.o (ex liblibpixy_m4.a)
     368	      0	      0	    368	    170	calc.o (ex liblibpixy_m4.a)
-   5455	     10	     21	   5486	   156e	camera.o (ex liblibpixy_m4.a)
+   5443	     10	     21	   5474	   1562	camera.o (ex liblibpixy_m4.a)
    4528	      0	      0	   4528	   11b0	chirp.o (ex liblibpixy_m4.a)
    2874	      0	      0	   2874	    b3a	colorlut.o (ex liblibpixy_m4.a)
     800	      0	      0	    800	    320	debug_frmwrk.o (ex liblibpixy_m4.a)
@@ -104,5 +49,5 @@ arm-none-eabi-size "liblibpixy_m4.a" ; # arm-none-eabi-objdump -h -S "liblibpixy
     523	      0	     38	    561	    231	usbuser.o (ex liblibpixy_m4.a)
  
 
-20:28:20 Build Finished (took 1s.797ms)
+19:07:38 Build Finished (took 1s.232ms)
 

@@ -18,15 +18,22 @@
 
 #include <QWidget>
 #include <QImage>
+#include <QPlainTextEdit>
+#include <QtTest/QTest>
 
 #define VW_ASPECT_RATIO   ((float)1280/(float)800)
 
 class UsbCam;
 class MainWindow;
 
+namespace Ui {
+    class MainWindow;
+}
+
 class VideoWidget : public QWidget
 {
     Q_OBJECT
+
 
 public:
     VideoWidget(MainWindow *main);
@@ -37,6 +44,8 @@ public:
 
     int activeWidth();
     int activeHeight();
+
+    void setConsole(QPlainTextEdit* console);
 
     enum InputMode
     {
@@ -58,6 +67,7 @@ signals:
 public slots:
     void handleImage(QImage image, uchar renderFlags);
     void acceptInput(VideoWidget::InputMode mode); // need the VideoWidget qualifier, otherwise it won't recognize the metatype!
+    void messageInDebug(QString message);
 
 private slots:
 
@@ -79,6 +89,17 @@ private:
     bool m_drag;
     InputMode m_inputMode;
     bool m_selection;
+    float m_aspectRatio;
+
+    // console for debug
+    QPlainTextEdit* m_console;
+    // frame draw count
+    int m_draw_count;
+    // time for cacl fps
+    QTime* m_time;
+    // count frame in second
+    int m_count_frame;
+
 };
 
 
