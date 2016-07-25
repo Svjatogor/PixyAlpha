@@ -1,42 +1,5 @@
-19:07:40 **** Incremental Build of configuration SPIFI for project main_m4 ****
+12:44:28 **** Incremental Build of configuration SPIFI for project main_m4 ****
 make -r all 
-Building file: ../src/main_m4.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/main_m4.d" -MT"src/main_m4.o" -MT"src/main_m4.d" -o "src/main_m4.o" "../src/main_m4.cpp"
-../src/main_m4.cpp: In function 'int main()':
-../src/main_m4.cpp:57:11: warning: unused variable 'major' [-Wunused-variable]
-  uint16_t major, minor, build;
-           ^
-../src/main_m4.cpp:57:18: warning: unused variable 'minor' [-Wunused-variable]
-  uint16_t major, minor, build;
-                  ^
-../src/main_m4.cpp:57:25: warning: unused variable 'build' [-Wunused-variable]
-  uint16_t major, minor, build;
-                         ^
-../src/main_m4.cpp:58:6: warning: unused variable 'i' [-Wunused-variable]
-  int i, res, count;
-      ^
-../src/main_m4.cpp:58:9: warning: unused variable 'res' [-Wunused-variable]
-  int i, res, count;
-         ^
-../src/main_m4.cpp:58:14: warning: unused variable 'count' [-Wunused-variable]
-  int i, res, count;
-              ^
-Finished building: ../src/main_m4.cpp
- 
-Building file: ../src/progblobs.cpp
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -D__MULTICORE_MASTER -DIPC_MASTER -DPIXY -D__NEWLIB__ -DNDEBUG -D__CODE_RED -DCORE_M4 -DCPP_USE_HEAP -D__LPC43XX__ -DLPC43_MULTICORE_M0APP -D__MULTICORE_MASTER_SLAVE_M0APP -I"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\inc" -I../../libpixy_m4/inc -I../../common/inc -I../../../common/inc -O1 -Os -g -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fsingle-precision-constant -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -D__NEWLIB__ -MMD -MP -MF"src/progblobs.d" -MT"src/progblobs.o" -MT"src/progblobs.d" -o "src/progblobs.o" "../src/progblobs.cpp"
-../src/progblobs.cpp:32:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
- };
- ^
-../src/progblobs.cpp:32:1: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-../src/progblobs.cpp: In function 'int blobsLoop()':
-../src/progblobs.cpp:136:10: warning: variable 'result' set but not used [-Wunused-but-set-variable]
-  int32_t result, len;
-          ^
-Finished building: ../src/progblobs.cpp
- 
 Building target: main_m4.axf
 Invoking: MCU C++ Linker
 arm-none-eabi-c++ -nostdlib -L"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\main_m4\src" -L"C:\Users\tmelniko\Documents\GitHub\PixyFirmware\PixyFirmware\src\device\libpixy_m4\Release" -Xlinker -Map="main_m4.map" -Xlinker --gc-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -mthumb -T "SPIFI_link_template.ld" -L ../linkscripts -o "main_m4.axf"  ./src/analogdig.o ./src/button.o ./src/conncomp.o ./src/cr_cpp_config.o ./src/cr_start_m0.o ./src/cr_startup_lpc43xx.o ./src/exec.o ./src/i2c.o ./src/main_m4.o ./src/progblobs.o ./src/progchase.o ./src/progpt.o ./src/progvideo.o ./src/serial.o ./src/spi.o ./src/uart.o  C:/Users/tmelniko/Documents/GitHub/PixyFirmware/PixyFirmware/src/device/main_m0/Release/main_m0.axf.o -llibpixy_m4 -lfalcon_m4_spifi_drv
@@ -66,5 +29,5 @@ Previous value 0x00000000 at offset 0x1c in file main_m4.bin
 copy from `main_m4.axf' [elf32-littlearm] to `pixy_firmware.hex' [ihex]
  
 
-19:07:42 Build Finished (took 1s.682ms)
+12:44:29 Build Finished (took 859ms)
 
